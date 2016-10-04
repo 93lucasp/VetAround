@@ -1,1 +1,3 @@
 # VetAround
+This is an app that I'm trying to develop in my free time, it allows you to find the veterinary closer to you!
+WORKING IN PROGRES...
