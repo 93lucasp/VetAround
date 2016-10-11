@@ -1,0 +1,26 @@
+{
+  "name": "vet-around",
+  "version": "1.0.0",
+  "description": "This is an app that I'm trying to develop in my free time, it allows you to find the veterinary closer to you! WORKING IN PROGRES...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/93lucasp/VetAround.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/93lucasp/VetAround/issues"
+  },
+  "homepage": "https://github.com/93lucasp/VetAround#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "hbs": "^4.0.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.3"
+  }
+}
