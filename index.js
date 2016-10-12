@@ -3,8 +3,9 @@ var express 		= require('express'),
 	mongoose 		= require('mongoose'),
 	bodyParser 		= require('body-parser'),
 	methodOverride 	= require('method-override');
-	
 
+mongoose.connect('mongodb://localhost/VetAround');
+process.on('exit', function() { mongoose.disconnect() });
 app.set("view engine", "hbs");
 app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded({extended:true}));

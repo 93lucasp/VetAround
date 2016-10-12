@@ -11,6 +11,7 @@ router.route('/').get(function(req, res){
 });
 
 router.route('/places')
-	.get(placesController.index);
+	.get(placesController.index)
+	.post(placesController.create);
 
 module.exports = router;

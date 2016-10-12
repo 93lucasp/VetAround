@@ -1,1 +1,13 @@
-index.hbs
+<h2>Create a New Reminder</h2>
+<form onsubmit="createPlace(event)">
+  <label for="namePlace">nome:</label>
+  <input id="namePlace" type="text" name="namePlace">
+  <input type="submit">
+</form>
+<ul>
+{{#each places}}
+  <li class="place">
+    <h1>{{namePlace}}</h1>
+  </li>
+{{/each}}
+</ul>
