@@ -1,9 +1,29 @@
-<h2>Create a New Reminder</h2>
-<form onsubmit="createPlace(event)">
-  <label for="namePlace">nome:</label>
-  <input id="namePlace" type="text" name="namePlace">
-  <input type="submit">
-</form>
+<h2>Create a New Veterinary</h2>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Create a new vet
+</button>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <form onsubmit="createPlace(event)">
+	      <div class="modal-body">
+	  	  	<label for="namePlace">nome:</label>
+	  		<input id="namePlace" type="text" name="namePlace">
+	  	  </div>
+	  	  <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Create</button>
+	      </div>
+      </form>   
+    </div>
+  </div>
+</div>
 <ul>
 {{#each veterinary}}
   <li class="place">
