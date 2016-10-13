@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+// defining schema for places
 var PlaceSchema = new mongoose.Schema({
 	namePlace: String,
 	address: String,
@@ -11,5 +12,9 @@ var PlaceSchema = new mongoose.Schema({
  //      ref: 'User'
 	// }]
 });
+
+// define the model
 var Place = mongoose.model("Place", PlaceSchema);
+
+// export the model to any files that `require` this one
 module.exports = Place;
