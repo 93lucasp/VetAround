@@ -5,7 +5,7 @@ var placesController = {
   index: function(req, res) {
     Place.find({}, function(err, docs) {
       res.render("places/index", {veterinary: docs});
-	}).sort({createdAt: -1}); /* With .sort I am going to order the result of the find for the latest creater. */
+	}).sort({createdAt: -1}); // With .sort I am going to order the result of the find for the latest creater. 
   },
   // Create query of mongoose
   create: function(req, res) {
