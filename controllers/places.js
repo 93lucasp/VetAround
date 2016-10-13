@@ -4,7 +4,7 @@ var placesController = {
 	    index: function(req, res) {
 	    Place.find({}, function(err, docs) {
 	      res.render("places/index", {veterinary: docs});
-	    });
+	    }).sort({createdAt: -1});
 	  },
 	  create: function(req, res) {
 	    Place.create({namePlace: req.body.namePlace}, function(err, doc) {

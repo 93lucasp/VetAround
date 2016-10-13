@@ -1,5 +1,6 @@
 
 var createPlace = function(e) {
+
   var place = $(e.target).serialize();
   $.post("/places", place)
     // If received status 200 will work function done else if received status 500 working fail function

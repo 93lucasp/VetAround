@@ -1,6 +1,6 @@
 <h2>Create a New Veterinary</h2>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-primary btn-sm" id="test" data-toggle="modal" data-target="#myModal">
   Create a new vet
 </button>
 <!-- Modal -->
@@ -24,10 +24,15 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+  	{{#each veterinary}}
+ 		<div class="col-md-3 col">{{namePlace}}</div>
+	{{/each}}
+  
+</div>
+</div>
 <ul>
-{{#each veterinary}}
-  <li class="place">
-    <h1>{{namePlace}}</h1>
-  </li>
-{{/each}}
+
 </ul>
