@@ -1,8 +1,10 @@
 <h2>Create a New Veterinary</h2>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-sm" id="test" data-toggle="modal" data-target="#myModal">
   Create a new vet
 </button>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -43,15 +45,13 @@
   <div class="row">
   	{{#each veterinary}}
  		<div class="col-md-3 col">
- 			<div>NOME: {{namePlace}}</div>
+ 			<a href="/places/{{id}}"><div>NOME: {{namePlace}}</div></a> 
  			<div>DOTTORE: {{nameDoc}}</div> 
  			<div>CITTA':{{city}}</div> 
- 			<div>VIA: {{address}}</div>    
+ 			<div>VIA: {{address}}</div>
+ 			<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 		
  		</div>
 	{{/each}}
   
+  </div>
 </div>
-</div>
-<ul>
-
-</ul>

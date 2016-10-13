@@ -14,4 +14,8 @@ router.route('/places')
 	.get(placesController.index)
 	.post(placesController.create);
 
+router.route('/places/:id')
+	.delete(placesController.destroy)
+	.get(placesController.show);
+
 module.exports = router;
