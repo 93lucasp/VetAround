@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 
 var PlaceSchema = new mongoose.Schema({
 	namePlace: String,
+	address: String,
+	city: String,
+	nameDoc: String,
 	createdAt: { type: Date, required: false, default: Date.now }
 	// postedBy: [{
 	//   type: Schema.Types.ObjectId,

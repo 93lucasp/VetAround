@@ -7,7 +7,7 @@ var placesController = {
 	    }).sort({createdAt: -1});
 	  },
 	  create: function(req, res) {
-	    Place.create({namePlace: req.body.namePlace}, function(err, doc) {
+	    Place.create({namePlace: req.body.namePlace, nameDoc: req.body.nameDoc, city: req.body.city, address: req.body.address}, function(err, doc) {
 	      // if there there is an error: send status 500 and going to the fail function in the client side(app.js); else: send status 200 and going to the done function in the client side(app.js).
 	      err ? 
 	      res.sendStatus(500) : res.sendStatus(200);
