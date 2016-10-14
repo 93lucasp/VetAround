@@ -24,3 +24,4 @@ var deletePlace = function(place){
     }
   });
 };
+

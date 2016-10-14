@@ -1,7 +1,6 @@
 var Place = require("../models/place");
 
 var placesController = {
-  // Find query of mongoose that find all the places in the db;
   index: function(req, res) {
     Place.find({}, function(err, docs) {
       res.render("places/index", {veterinary: docs});
@@ -30,7 +29,8 @@ var placesController = {
   	  err ? 
 	  res.sendStatus(500) : res.sendStatus(200);
   	});
-  }
+  },
+  
 };
 
 module.exports = placesController;
