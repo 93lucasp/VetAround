@@ -10,8 +10,20 @@
     <script src="/js/app.js"></script>
     {{!-- Requiring style.css --}}
     <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/jquery.quicksearch.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('input#id_search').quicksearch('.col');
+        
+      });
+    </script>
   </head>
   <body>
+  <form action="#">
+      <fieldset>
+        <input type="text" name="search" value="" id="id_search" placeholder="Search" autofocus />
+      </fieldset>
+    </form>
     <header>
      <nav class="navbar navbar-default">
         <div class="container-fluid">

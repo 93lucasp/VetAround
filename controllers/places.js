@@ -1,6 +1,14 @@
 var Place = require("../models/place");
 
 var placesController = {
+  // search: function(req, res){
+  //   var name = req.body.namePlace;
+  //   Place.find({ namePlace: "bau" }, function(err, docs){
+  //     console.log("ciao---find name...-", docs);
+  //     // res.status(201).send(JSON.stringify(docs));
+  //     res.render("places/index", {namePlace: docs.namePlace});
+  //   });
+  // },
   index: function(req, res) {
     Place.find({}, function(err, docs) {
       res.render("places/index", {veterinary: docs});
@@ -18,6 +26,7 @@ var placesController = {
   show: function(req, res) {
   	var id = req.params.id;
   	Place.findById(id, function(err, place){
+      console.log("ciao---find showpage-", place);
   		res.render("places/show", {namePlace: place.namePlace, nameDoc: place.nameDoc, city: place.city, address: place.address, id: place.id});
   	});
   },

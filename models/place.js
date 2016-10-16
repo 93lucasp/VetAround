@@ -1,5 +1,5 @@
-var mongoose 	= require('mongoose'),
-	textSearch  = require('mongoose-text-search');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 // defining schema for places
 var PlaceSchema = new mongoose.Schema({
 	namePlace: String,
@@ -15,8 +15,6 @@ var PlaceSchema = new mongoose.Schema({
 
 // define the model
 var Place = mongoose.model("Place", PlaceSchema);
-
-
 
 // export the model to any files that `require` this one
 module.exports = Place;

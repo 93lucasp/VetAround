@@ -15,8 +15,13 @@ router.route('/').get(function(req, res){
 
 // Routes for places page;
 router.route('/places')
-	.get(placesController.index) //calling the index function in the server side;
-	.post(placesController.create); //calling the create function in the server side;
+	.get(placesController.index)
+	.post(placesController.create);
+	// .post(placesController.search);
+	 //calling the create function in the server side;
+	 //calling the index function in the server side;
+	 //calling the index function in the server side;
+	
 
 // Routes for places/id page;
 router.route('/places/:id')
