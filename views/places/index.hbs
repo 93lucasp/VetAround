@@ -1,14 +1,27 @@
 <h2>Create a New Veterinary</h2>
-{{!-- <form onsubmit="searchPlace(event)">
-  <label for="namePlace">nome place:</label>
-  <input class="form-control" id="namePlace" type="text" name="namePlace">
-  <button type="submit" class="btn btn-primary">Cerca</button>
-</form> --}}
+<div class="form-group">
+   <input type="text" class="form-control" id="search" placeholder="Search">
+</div>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-sm" id="test" data-toggle="modal" data-target="#myModal">
-  Create a new vet
+  Create
 </button>
+
+<div class="container">
+  <div class="row">
+  	{{#each veterinary}}
+ 		<div class="col-md-3 col">
+ 			<a href="/places/{{id}}"><div>NOME: {{namePlace}}</div></a> 
+ 			<div>DOTTORE: {{nameDoc}}</div> 
+ 			<div>CITTA':{{city}}</div> 
+ 			<div>VIA: {{address}}</div>
+ 			<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 		
+ 		</div>
+	{{/each}}  
+  </div>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -43,24 +56,5 @@
 	      </div>
       </form>   
     </div>
-  </div>
-</div>
-
-{{!--  		<div>NOME: {{namePlace}}</div>
- 		<div>città: {{city}}</div>
- --}}
-<div class="container">
-  <div class="row">
-
-  	{{#each veterinary}}
- 		<div class="col-md-3 col">
- 			<a href="/places/{{id}}"><div>NOME: {{namePlace}}</div></a> 
- 			<div>DOTTORE: {{nameDoc}}</div> 
- 			<div>CITTA':{{city}}</div> 
- 			<div>VIA: {{address}}</div>
- 			<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 		
- 		</div>
-	{{/each}}
-  
   </div>
 </div>
