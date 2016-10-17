@@ -1,3 +1,4 @@
+// Calling the quicksearch function from jquery.quicksearch.js file
 $(function () {
   $('input#search').quicksearch('.col');
 });

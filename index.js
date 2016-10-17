@@ -3,7 +3,6 @@ var express 		= require('express'),
 	app 			= express(),
 	mongoose 		= require('mongoose'),
 	bodyParser 		= require('body-parser'),
-	textSearch  = require('mongoose-text-search');
 	methodOverride 	= require('method-override');
 
 // Configuration

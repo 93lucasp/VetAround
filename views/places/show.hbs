@@ -1,5 +1,20 @@
-<div>NOME: {{namePlace}}</div>
-<div>DOTTORE: {{nameDoc}}</div> 
-<div>CITTA':{{city}}</div> 
-<div>VIA: {{address}}</div>
-<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button>
+<div class="container">
+  <div class="row">	
+    <div class="col-md-3 col">
+ 		<div>NOME: {{namePlace}}</div>
+		<div>DOTTORE: {{nameDoc}}</div> 
+		<div>CITTA':{{city}}</div> 
+		<div>VIA: {{address}}</div>
+		<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button>
+  	</div>
+  </div>
+</div>
+
+{{!-- <h1>Edit</h1>
+<form onsubmit="editPlace(event)">
+  <label for="namePlace">nome:</label>
+  <input id="namePlace" type="text" name="namePlace" value="{{namePlace}}">
+  <label for="nameDoc">cognome:</label>
+  <input id="nameDoc" type="text" name="cognome" value="{{nameDoc}}">
+  <button id="savePlace" data-id="{{id}}" type="submit">Edit</button>
+</form> --}}

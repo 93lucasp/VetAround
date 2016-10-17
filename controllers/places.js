@@ -26,7 +26,6 @@ var placesController = {
   show: function(req, res) {
   	var id = req.params.id;
   	Place.findById(id, function(err, place){
-      console.log("ciao---find showpage-", place);
   		res.render("places/show", {namePlace: place.namePlace, nameDoc: place.nameDoc, city: place.city, address: place.address, id: place.id});
   	});
   },
