@@ -15,17 +15,13 @@ router.route('/').get(function(req, res){
 
 // Routes for places page;
 router.route('/places')
-	.get(placesController.index)
-	.post(placesController.create);
-	// .post(placesController.search);
-	 //calling the create function in the server side;
-	 //calling the index function in the server side;
-	 //calling the index function in the server side;
-	
+	.get(placesController.index) //calling the INDEX function in the server side;
+	.post(placesController.create); //calling the CREATE function in the server side;
 
 // Routes for places/id page;
 router.route('/places/:id')
-	.delete(placesController.destroy) //calling the destroy function in the server side;
-	.get(placesController.show) //calling the show function in the server side;
-	.put(placesController.update);
+	.delete(placesController.destroy) //calling the DESTROY function in the server side;
+	.get(placesController.show) //calling the SHOW function in the server side;
+	.put(placesController.update); //calling the UPDATE function in the server side;
+	
 module.exports = router;

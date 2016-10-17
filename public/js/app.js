@@ -46,16 +46,14 @@ var editPlace = function(place) {
     dataType: 'json',
     data: updateData,
     success: function(res) {
+      // Refresching so params not still in url;
       window.location.href = '/places/' + id;
+      // Writing new values received from server side with .html
       $('#namePlace').html(updateData.namePlace);
       $('#nameDoc').html(updateData.nameDoc);
       $('#address').html(updateData.address);
       $('#city').html(updateData.city);
-      console.log("/places/",id);
-      
-  
       // id = "";
-
     }
   });
 
