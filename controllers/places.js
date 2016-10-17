@@ -35,10 +35,25 @@ var placesController = {
   	Place.remove({_id: id}, function(err, place) {
   	  // if there there is an error: send status 500; else: send status 200 and going to the success function in the client side(app.js);
   	  err ? 
-	  res.sendStatus(500) : res.sendStatus(200);
+	    res.sendStatus(500) : res.sendStatus(200);
   	});
   },
-  
+  update: function(req, res) {
+    var id = req.params.id;
+    Place.findById(id, function(err, place){
+      if (err) returnError(err);
+      if (req.body.namePlace ) place.namePlace = req.body.namePlace;
+      if (req.body.nameDoc) place.nameDoc = req.body.nameDoc;
+      if (req.body.address) place.address = req.body.address;
+      if (req.body.city) place.city = req.body.city;
+      
+      place.save(function(err, updatedPlace) {
+        err ? 
+        res.sendStatus(500) : res.json(updatedPlace);
+        
+      });
+    });
+  } 
 };
 
 module.exports = placesController;

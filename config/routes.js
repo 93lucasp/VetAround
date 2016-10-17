@@ -26,6 +26,6 @@ router.route('/places')
 // Routes for places/id page;
 router.route('/places/:id')
 	.delete(placesController.destroy) //calling the destroy function in the server side;
-	.get(placesController.show); //calling the show function in the server side;
-
+	.get(placesController.show) //calling the show function in the server side;
+	.put(placesController.update);
 module.exports = router;

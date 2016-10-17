@@ -32,3 +32,32 @@ var deletePlace = function(place){
   });
 };
 
+var editPlace = function(place) {
+  var id = $("#savePlace").data("id");
+  var updateData = {
+    namePlace: $('#namePlace').val(),
+    nameDoc: $('#nameDoc').val(),
+    address: $('#address').val(),
+    city: $('#city').val(),
+  };
+  $.ajax({
+    url: '/places/' + id,
+    type: "PUT",
+    dataType: 'json',
+    data: updateData,
+    success: function(res) {
+      window.location.href = '/places/' + id;
+      $('#namePlace').html(updateData.namePlace);
+      $('#nameDoc').html(updateData.nameDoc);
+      $('#address').html(updateData.address);
+      $('#city').html(updateData.city);
+      console.log("/places/",id);
+      
+  
+      // id = "";
+
+    }
+  });
+
+};
+
