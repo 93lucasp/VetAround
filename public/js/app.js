@@ -10,17 +10,12 @@ var createUser = function(e) {
   console.log("new useeeeer",newUser);
   $.post("/users", newUser)
    .done(function(req, res) {
-
-      window.location.href = '/users';
-      
-      $.post("/login", newUser)
-       .done(function(req, res) {
-          window.location.href = '/welcome';
-        });
-    })
-    .fail(function(err) {
-      console.log("Error", err);
-    });  
+    window.location.href = '/welcome';
+    console.log("logged");
+  })
+  .fail(function(err) {
+    console.log("Error", err);
+  }); 
 };
 
 var loginUser = function(e) {
