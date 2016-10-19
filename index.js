@@ -31,9 +31,7 @@ app.use(function (req, res, next) {
   };
   // find the current user
   req.currentUser = function (cb) {
-    db.User.
-      findOne({ _id: req.session.userId },
-      function (err, user) {
+    User.findOne({ _id: req.session.userId },function (err, user) {
         req.user = user;
         cb(null, user);
       })

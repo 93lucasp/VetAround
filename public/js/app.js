@@ -4,24 +4,38 @@ $(function () {
 });
 
 var createUser = function(e) {
-  // debugger;
-  e.preventDefault();
+  debugger;
+  e.preventDefault(); // senza questo window location will not work
   var newUser = $(e.target).serialize();
-  console.log(newUser);
+  console.log("new useeeeer",newUser);
   $.post("/users", newUser)
-   .done(function(res) {
-      window.location.href = '/users';  // Working only with debugger;
-      var id = JSON.parse(res)._id;
-      console.log('create user was successful!', res);
+   .done(function(req, res) {
+
+      window.location.href = '/users';
       
-      // $.post("/login", newUser)
-      //  .done(function(req, res) {
-      //     window.location.href = '/profile/' + id;
-      //   });
+      $.post("/login", newUser)
+       .done(function(req, res) {
+          window.location.href = '/welcome';
+        });
     })
     .fail(function(err) {
       console.log("Error", err);
     });  
+};
+
+var loginUser = function(e) {
+  debugger;
+  e.preventDefault();
+  var user = $(e.target).serialize();
+  console.log("lalalalal", user);
+  $.post("/login", user)
+  .done(function(req, res) {
+    window.location.href = '/welcome';
+    console.log("logged");
+  })
+  .fail(function(err) {
+    console.log("Error", err);
+  });  
 };
 
 // CreatePlace function called on the button click;

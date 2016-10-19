@@ -10,7 +10,7 @@ var express 		  = require('express'),
 
 // Differents routes;
 
-router.route('/').get(function(req, res){
+router.route('/welcome').get(function(req, res){
   res.send('welcome');
 });
 
@@ -18,7 +18,7 @@ router.route('/').get(function(req, res){
 router.route('/places')
 	.get(placesController.index) //calling the INDEX function in the server side;
 	.post(placesController.create); //calling the CREATE function in the server side;
-	
+
 router.route('/users')
 	.get(usersController.index) //calling the INDEX function in the server side;
 	.post(usersController.create); //calling the CREATE function in the server side;
@@ -29,6 +29,13 @@ router.route('/places/:id')
 	.get(placesController.show) //calling the SHOW function in the server side;
 	.put(placesController.update); //calling the UPDATE function in the server side;
 
+router.route('/login')
+	.post(usersController.login); 
+
+router.route('/profile')
+	.get(usersController.profile); 
+	// .get(usersController.index) //calling the INDEX function in the server side;
+	
 // Routes for places page;
 
 // Routes for places/id page;

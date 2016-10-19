@@ -25,6 +25,32 @@ UserSchema.statics.createSecure = function (user, cb) {
   });
 };
 
+// authenticate user (for login)
+UserSchema.statics.authenticate = function (email, password, cb) {
+  // find user by email entered at log in
+  this.findOne({email: email}, function (err, user) {
+    // throw error if can't find user
+    if (user === null) {
+      cb("Can\'t find user with that email", null);
+    // if found user, check if password is correct
+    } else if (user.checkPassword(password)) {
+      // the user is found & password is correct, so execute callback
+      // pass no error, just the user to the callback
+      cb(null, user);
+    } else {
+      // user found, but password incorrect
+      cb("password incorrect", user)
+    }
+  });
+};
+
+// compare password user enters with hashed password (`passwordDigest`)
+UserSchema.methods.checkPassword = function (password) {
+  // run hashing algorithm (with salt) on password to compare with stored `passwordDigest`
+  // `compareSync` is like `compare` but synchronous
+  // returns true or false
+  return bcrypt.compareSync(password, this.passwordDigest);
+};
 
 
 var User       = mongoose.model('User', UserSchema);
