@@ -1,8 +1,18 @@
+
+
+
+{{!--  Button trigger modal  --}}
+<button type="button" class="btn btn-primary btn-sm" id="modalButtonSignup" data-toggle="modal" data-target="#modalSignup">
+  Signup
+</button>
+
+
 <h2>Create a New Veterinary</h2>
 {{!-- Search input --}}
 <div class="form-group">
    <input type="text" class="form-control" id="search" placeholder="Search">
 </div>
+
 
 {{!--  Button trigger modal  --}}
 <button type="button" class="btn btn-primary btn-sm" id="test" data-toggle="modal" data-target="#myModal">
@@ -59,3 +69,42 @@
     </div>
   </div>
 </div>
+
+
+{{!--  Modal  --}}
+<div class="modal fade" id="modalSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal signup</h4>
+      </div>
+      <form onsubmit="createUser(event)">
+	      <div class="modal-body">
+	      	<div class="form-group">
+		  	  	<label for="nome">Nome:</label>
+				<input class="form-control" id="nome" type="text" name="nome">
+	  		</div>
+	  		<div class="form-group">
+		  		<label for="cognome">cognome:</label>
+				<input class="form-control" id="cognome" type="text" name="cognome">
+	  		</div>
+	  		<div class="form-group">
+		  		<label for="email">Email:</label>
+		  		<input class="form-control" id="email" type="email" name="email">
+	  		</div>
+	  		<div class="form-group">
+		  		<label for="passwordDigest">Password:</label>
+				<input class="form-control" id="passwordDigest" type="password" name="passwordDigest">
+			</div>
+	  	  </div>
+	  	  <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Create</button>
+	      </div>
+      </form>   
+    </div>
+  </div>
+</div>
+
+

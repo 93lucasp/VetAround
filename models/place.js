@@ -1,5 +1,6 @@
 var mongoose 	= require('mongoose'),
 	Schema 		= mongoose.Schema;
+	User 		= require("./user");
 
 // defining schema for places
 var PlaceSchema = new mongoose.Schema({
@@ -7,11 +8,11 @@ var PlaceSchema = new mongoose.Schema({
 	address: String,
 	city: String,
 	nameDoc: String,
-	createdAt: { type: Date, required: false, default: Date.now }
-	// postedBy: [{
-	//   type: Schema.Types.ObjectId,
- //      ref: 'User'
-	// }]
+	createdAt: { type: Date, required: false, default: Date.now },
+	postedBy: [{
+	  type: Schema.Types.ObjectId,
+      ref: 'User'
+	}]
 });
 
 // define the model

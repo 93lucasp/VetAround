@@ -3,7 +3,9 @@ var express 		= require('express'),
 	app 			= express(),
 	mongoose 		= require('mongoose'),
 	bodyParser 		= require('body-parser'),
-	methodOverride 	= require('method-override');
+	methodOverride 	= require('method-override'),
+	session 		= require('express-session');
+	keygen			= require('keygenerator'),
 
 // Configuration
 mongoose.connect('mongodb://localhost/VetAround');
@@ -13,6 +15,37 @@ app.use(bodyParser.json());  // allows for parameters in JSON and html
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));  // allows for put/delete request in html form
 app.use(express.static(__dirname + '/public')); // looks for assets like stylesheets in a `public` folder
+app.use(
+  session({
+    secret: keygen._({specials: true}),
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+// extending the `req` object to help manage sessions
+app.use(function (req, res, next) {
+  // login a user
+  req.login = function (user) {
+    req.session.userId = user._id;
+  };
+  // find the current user
+  req.currentUser = function (cb) {
+    db.User.
+      findOne({ _id: req.session.userId },
+      function (err, user) {
+        req.user = user;
+        cb(null, user);
+      })
+  };
+  // logout the current user
+  req.logout = function () {
+    req.session.userId = null;
+    req.user = null;
+  }
+  // call the next middleware in the stack
+  next(); 
+});
 
 // Getting routes 
 var routes = require('./config/routes');

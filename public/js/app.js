@@ -3,6 +3,27 @@ $(function () {
   $('input#search').quicksearch('.col');
 });
 
+var createUser = function(e) {
+  // debugger;
+  e.preventDefault();
+  var newUser = $(e.target).serialize();
+  console.log(newUser);
+  $.post("/users", newUser)
+   .done(function(res) {
+      window.location.href = '/users';  // Working only with debugger;
+      var id = JSON.parse(res)._id;
+      console.log('create user was successful!', res);
+      
+      // $.post("/login", newUser)
+      //  .done(function(req, res) {
+      //     window.location.href = '/profile/' + id;
+      //   });
+    })
+    .fail(function(err) {
+      console.log("Error", err);
+    });  
+};
+
 // CreatePlace function called on the button click;
 var createPlace = function(e) {
   e.preventDefault();

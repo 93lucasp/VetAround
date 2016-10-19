@@ -20,7 +20,9 @@
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-session": "^1.14.1",
     "hbs": "^4.0.1",
+    "keygenerator": "^1.0.4",
     "method-override": "^2.3.6",
     "mongoose": "^4.6.3",
     "path": "^0.12.7"
