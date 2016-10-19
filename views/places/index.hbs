@@ -1,7 +1,20 @@
-{{!--  Button trigger modal  --}}
-<button type="button" class="btn btn-primary btn-sm" id="modalButtonLogin" data-toggle="modal" data-target="#modalLogin">
-  Login
-</button>
+<ul > 
+        {{#if currentUser}}
+        <li>
+          <a href="/profile/{{currentUser._id}}">{{currentUser.firstName}}</a>
+        </li>
+         <li >
+          <a href="/home" id="logout">Home</a>
+        </li>
+        <li>
+          <a href="/logout" id="logout">Logout</a>
+        </li>
+        {{else}}
+
+          <a href="#" id="modalButtonLogin" type="button" data-toggle="modal" data-target="#modalLogin">Login</a>
+       
+        {{/if}}
+      </ul>
 
 
 {{!--  Button trigger modal  --}}
@@ -100,6 +113,12 @@
 		  		<label for="passwordDigest">Password:</label>
 				<input class="form-control" id="passwordDigest" type="password" name="passwordDigest">
 			</div>
+			<div class="form-group">
+              <label class="col-md-4 control-label" for="password">Confirmation password</label>
+              <div class="col-md-4">
+                <input id="password" name="password" type="password"placeholder="" class="form-control input-md" required="">
+              </div>
+            </div>
 	  	  </div>
 	  	  <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -118,7 +137,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal signup</h4>
       </div>
-      <form onsubmit="loginUser(event)">
+      <form id="loginUser" onsubmit="loginUser(event)">
 	      <div class="modal-body">
 	  		<div class="form-group">
 		  		<label for="email">Email:</label>

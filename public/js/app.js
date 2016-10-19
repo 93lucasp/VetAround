@@ -5,17 +5,22 @@ $(function () {
 
 var createUser = function(e) {
   debugger;
-  e.preventDefault(); // senza questo window location will not work
+  e.preventDefault();
   var newUser = $(e.target).serialize();
-  console.log("new useeeeer",newUser);
+  console.log(newUser);
   $.post("/users", newUser)
-   .done(function(req, res) {
-    window.location.href = '/welcome';
-    console.log("logged");
-  })
-  .fail(function(err) {
-    console.log("Error", err);
-  }); 
+   .done(function(res) {
+      var id = JSON.parse(res)._id;
+      console.log('create user was successful!', res);
+       window.location.href = '/places';
+      $.post("/login", newUser)
+       .done(function(req, res) {
+          window.location.href = '/places';
+        });
+    })
+    .fail(function(err) {
+      console.log("Error", err);
+    });  
 };
 
 var loginUser = function(e) {
@@ -25,7 +30,7 @@ var loginUser = function(e) {
   console.log("lalalalal", user);
   $.post("/login", user)
   .done(function(req, res) {
-    window.location.href = '/welcome';
+    window.location.href = '/places';
     console.log("logged");
   })
   .fail(function(err) {

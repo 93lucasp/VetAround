@@ -11,21 +11,22 @@ var usersController = {
   // Create query of mongoose
   create: function(req, res) {
   	var user = req.body;
-  	console.log("user2 is: ", user);
+  	console.log("user - create is: ", user);
   	User.createSecure(user, function() {
-      console.log("user2 is: ", user);
+      console.log("user - create is: ", user);
       res.status(201).send(JSON.stringify(user));
     });
   },
   login: function(req, res) {
+  console.log("req body: ", req.body);
 	var email = req.body.email;
 	var password = req.body.password;
-	console.log("email1 is: ", email);
-	console.log("password1 is: ", password);
+	console.log("email-1 is: ", email);
+	console.log("password-1 is: ", password);
 	User.authenticate(email, password, function (err, user) {
-	 console.log("user2 is: ", user);
-	console.log("email2 is: ", email);
-	console.log("password2 is: ", password);
+	 console.log("user-2 is: ", user);
+	console.log("email-2 is: ", email);
+	console.log("password-2 is: ", password);
 	if (err) {
         console.log(err);
         res.status(500).send();
@@ -37,6 +38,11 @@ var usersController = {
       }
 
 	});
+  },
+  logoutUser: function(req, res) {
+    req.logout();
+    console.log("logout: ", req.session);
+    res.redirect("/places");
   }, 
   profile: function(req, res) {
   	req.currentUser(function (err, user) {
