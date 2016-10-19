@@ -33,6 +33,7 @@ router.route('/login')
 	.post(usersController.login); 
 router.route('/logout')
  	.get(usersController.logoutUser);
+ 	
 router.route('/profile')
 	.get(usersController.profile); 
 	// .get(usersController.index) //calling the INDEX function in the server side;
@@ -45,10 +46,6 @@ router.route('/profile')
 // 	.get(usersController.show) //calling the SHOW function in the server side;
 // 	.put(usersController.update); //calling the UPDATE function in the server side;
 
-//session routes
-// router.route('/login')
-//  	.post(usersController.loginUser);
-// router.route('/logout')
-//  	.get(usersController.logoutUser);
+
 	
 module.exports = router;
