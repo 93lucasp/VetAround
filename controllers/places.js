@@ -91,41 +91,6 @@ var placesController = {
   	});
   },
 
-  index: function(req, res) {
-    Place.find({}, function(err, docs) {
-      if(err) returnError(err);
-      docs.forEach(function(place) {
-        User.findOne({_id: place.postedBy[0]}, function(err, user){
-          place.user = user;
-        });
-      });
-      // console.log("currentUser is: ", req.currentUser);
-      req.currentUser(function() {
-        docs.forEach(function(place) {
-
-          if (req.user) {
-          // console.log("posted by111•–•", typeof place.postedBy[0].id);
-          // console.log("req user •••••••••••••", req.user);
-          // console.log("posted by222•-•", typeof req.user._id.id);
-          // console.log("posted by333•-•", (place.postedBy[0] == req.user._id));
-          var placePostedBy = JSON.stringify(place.postedBy[0]);
-          var userId = JSON.stringify(req.user._id);
-            if(placePostedBy == userId) {
-              place.canDelete = true;
-            } 
-            else {
-              place.canDelete = false;
-            }
-          }
-
-          
-            console.log("can delete?????:", place.canDelete);
-        });
-      });
-      res.render("places/index", {veterinary: docs});
-    }).sort({createdAt: -1}); // With .sort I am going to order the result of the find for the latest creater;
-  },
-
 
   // Remove query of mongoose that remove only the one with the correct id;
   destroy: function(req, res){
