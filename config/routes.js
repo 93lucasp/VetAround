@@ -34,17 +34,10 @@ router.route('/login')
 router.route('/logout')
  	.get(usersController.logoutUser);
  	
-router.route('/profile')
-	.get(usersController.profile); 
+// router.route('/profile')
+// 	.get(usersController.profile); 
 	// .get(usersController.index) //calling the INDEX function in the server side;
 	
-// Routes for places page;
-
-// Routes for places/id page;
-// router.route('/profile/:id')
-// 	.delete(usersController.destroy) //calling the DESTROY function in the server side;
-// 	.get(usersController.show) //calling the SHOW function in the server side;
-// 	.put(usersController.update); //calling the UPDATE function in the server side;
 
 
 	

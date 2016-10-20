@@ -17,17 +17,18 @@ var usersController = {
       res.status(201).send(JSON.stringify(user));
     });
   },
+  // The login function will run the authenticate function written in the user model, it will check if the user exist;
   login: function(req, res) {
-  console.log("req body: ", req.body);
-	var email = req.body.email;
-	var password = req.body.password;
-	console.log("email-1 is: ", email);
-	console.log("password-1 is: ", password);
-	User.authenticate(email, password, function (err, user) {
-	 console.log("user-2 is: ", user);
-	console.log("email-2 is: ", email);
-	console.log("password-2 is: ", password);
-	if (err) {
+    console.log("req body: ", req.body);
+	  var email = req.body.email;
+	  var password = req.body.password;
+	  console.log("email-1 is: ", email);
+	  console.log("password-1 is: ", password);
+	  User.authenticate(email, password, function (err, user) {
+	    console.log("user-2 is: ", user);
+	    console.log("email-2 is: ", email);
+	    console.log("password-2 is: ", password);
+	    if (err) {
         console.log(err);
         res.status(500).send();
       } 
@@ -39,16 +40,12 @@ var usersController = {
 
 	});
   },
+  // the logoutUser function will go out from the session putting the userId to null it is in the index.js file;
   logoutUser: function(req, res) {
     req.logout();
     console.log("logout: ", req.session);
     res.redirect("/places");
   }, 
-  profile: function(req, res) {
-  	req.currentUser(function (err, user) {
-    res.send("Hello " + user.email);
-  });
-  }
 
 };
 

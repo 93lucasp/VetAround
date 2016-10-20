@@ -1,20 +1,21 @@
 // Dependencies
-var express 		= require('express'),
-	app 			= express(),
-	mongoose 		= require('mongoose'),
-	bodyParser 		= require('body-parser'),
-	methodOverride 	= require('method-override'),
-	session 		= require('express-session');
-	keygen			= require('keygenerator'),
+var express 		  = require('express'),           // Web Frameworks;
+	app 			      = express(),
+	mongoose 		    = require('mongoose'),          // Mongo ODM;
+  hbs             = require('hbs'),               // View engine;
+	bodyParser 		  = require('body-parser'),       // Allows us to get parameter values from forms;
+	methodOverride 	= require('method-override'),   // Allows us to do put/delete requests in our hbs views;
+	session 		    = require('express-session');   // Create a session middleware with the given options, Session data is stored server-side;
+	keygen			    = require('keygenerator'),      // Random String generator;
 
 // Configuration
-mongoose.connect('mongodb://localhost/VetAround');
+mongoose.connect('mongodb://localhost/VetAround');        //Connection to the db
 process.on('exit', function() { mongoose.disconnect() }); // Shutdown Mongoose correctly
-app.set("view engine", "hbs"); // sets view engine to handlebars
-app.use(bodyParser.json());  // allows for parameters in JSON and html
+app.set("view engine", "hbs");                            // sets view engine to handlebars
+app.use(bodyParser.json());                               // allows for parameters in JSON and html
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(methodOverride('_method'));  // allows for put/delete request in html form
-app.use(express.static(__dirname + '/public')); // looks for assets like stylesheets in a `public` folder
+app.use(methodOverride('_method'));                       // allows for put/delete request in html form
+app.use(express.static(__dirname + '/public'));           // Looks for assets like stylesheets in a `public` folder
 // create the session middleware
 app.use(
   session({
@@ -25,11 +26,11 @@ app.use(
 );
 
 app.use(function(req, res, next){
-  //login user
+  // Login user;
   req.login = function(user) {
     req.session.userId = user._id;
   };
-  // find current user
+  // Find current user;
   req.currentUser = function (cb) {
     User.findOne({ _id: req.session.userId },
     function(err, user){
@@ -40,12 +41,12 @@ app.use(function(req, res, next){
 
   };
 
-  // log out current user
+  // Logout current user;
   req.logout = function() {
     req.session.userId = null;
     req.user = null;
   };
-  // call the next middleware in the stack
+  // Call the next middleware in the stack
   req.currentUser(next);
 });
 

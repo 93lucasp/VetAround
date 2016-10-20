@@ -2,32 +2,38 @@
 $(function () {
   $('input#search').quicksearch('.col');
 });
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                             USER
+///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+// Function called from the signup form;
 var createUser = function(e) {
-  debugger;
-  e.preventDefault();
-  var newUser = $(e.target).serialize();
-  console.log(newUser);
+  e.preventDefault(); // The preventDefault() method will prevent the to go too fast to the URL;
+  var newUser = $(e.target).serialize(); // The .serialize() method creates a text string in standard URL-encoded notation from the form (example nome=luca of the user);
+  console.log("New user:",newUser);
+  // Going to this route passing the data of the user got from the form;
   $.post("/users", newUser)
+   // If user has been created go in the .done function if not go to the .fail function;
    .done(function(res) {
-      var id = JSON.parse(res)._id;
-      console.log('create user was successful!', res);
+      // var id = JSON.parse(res)._id; 
+      console.log('create user was successful:', res);
        window.location.href = '/places';
+       // When user created calling the login function;
       $.post("/login", newUser)
        .done(function(req, res) {
           window.location.href = '/places';
         });
     })
-    .fail(function(err) {
+   .fail(function(err) {
       console.log("Error", err);
     });  
 };
 
+// Function called from the login form;
 var loginUser = function(e) {
-  debugger;
   e.preventDefault();
-  var user = $(e.target).serialize();
-  console.log("lalalalal", user);
+  var user = $(e.target).serialize(); // The .serialize() method creates a text string in standard URL-encoded notation from the form (example nome=luca of the user);
+  console.log("user login is:", user);
   $.post("/login", user)
   .done(function(req, res) {
     window.location.href = '/places';
@@ -38,10 +44,14 @@ var loginUser = function(e) {
   });  
 };
 
-// CreatePlace function called on the button click;
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                             PLACE
+///////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+// Function called from the create form;
 var createPlace = function(e) {
   e.preventDefault();
-  var place = $(e.target).serialize();  //The .serialize() method creates a text string in standard URL-encoded notation from the form (example namePlace=name of the place);
+  var place = $(e.target).serialize();  // The .serialize() method creates a text string in standard URL-encoded notation from the form (example namePlace=name of the place);
   $.post("/places", place)
     // If received status 200 will work the function done;
    .done(function(res) {
@@ -67,14 +77,17 @@ var deletePlace = function(place){
   });
 };
 
+// Function called from the edit form;
 var editPlace = function(place) {
   var id = $("#savePlace").data("id");
+  // Getting the value that the user write in the input;
   var updateData = {
     namePlace: $('#namePlace').val(),
     nameDoc: $('#nameDoc').val(),
     address: $('#address').val(),
     city: $('#city').val(),
   };
+  // Sending the values got from the input (updateData) to the update function (server side);
   $.ajax({
     url: '/places/' + id,
     type: "PUT",
