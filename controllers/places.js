@@ -10,12 +10,27 @@ var placesController = {
 
   // Create query of mongoose
   create: function(req, res) {
-    Place.create({namePlace: req.body.namePlace, nameDoc: req.body.nameDoc, city: req.body.city, address: req.body.address}, function(err, doc) {
-      console.log(req.body);
+    console.log("req body 1111:", req.body);
+    Place.create(req.body, function(err, place) {
+      console.log("place----",place);
+      console.log("session user id----", req.session.userId);
+      place.postedBy.push(req.session.userId);
+      console.log("place----after pushing",place);
+      place.save(function(err) {
+        if (err) console.log("errororororooror");
+      });
+      err ? 
+      res.sendStatus(500) : res.sendStatus(200);
+      
       // if there there is an error: send status 500 and going to the fail function in the client side(app.js); else: send status 200 and going to the done function in the client side(app.js);
-	    err ? 
-	    res.sendStatus(500) : res.sendStatus(200);
+	   console.log("req body 2222:", place);
 	  });
+  },
+
+  apiPlaces: function(req, res) {
+    Place.find({}, function(err, places) {
+      res.status(200).send(JSON.stringify(places));
+    });
   },
 
   // FindByid query of mongoose that find only the one with the id that i get from params.id;

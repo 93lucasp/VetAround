@@ -51,8 +51,8 @@ var loginUser = function(e) {
 // Function called from the create form;
 var createPlace = function(e) {
   e.preventDefault();
-  var place = $(e.target).serialize();  // The .serialize() method creates a text string in standard URL-encoded notation from the form (example namePlace=name of the place);
-  $.post("/places", place)
+  var newPlace = $(e.target).serialize();  // The .serialize() method creates a text string in standard URL-encoded notation from the form (example namePlace=name of the place);
+  $.post("/places", newPlace)
     // If received status 200 will work the function done;
    .done(function(res) {
      window.location.href = '/places';

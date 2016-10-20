@@ -37,7 +37,8 @@ router.route('/logout')
 // router.route('/profile')
 // 	.get(usersController.profile); 
 	// .get(usersController.index) //calling the INDEX function in the server side;
-	
+router.route('/api/places')
+	.get(placesController.apiPlaces);
 
 
 	
