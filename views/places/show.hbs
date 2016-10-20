@@ -1,3 +1,5 @@
+
+      
 <div class="container">
   <div class="row">	
     <div class="col-md-3 col">
@@ -5,11 +7,13 @@
 		<div>DOTTORE: {{nameDoc}}</div> 
 		<div>CITTA':{{city}}</div> 
 		<div>VIA: {{address}}</div>
+    {{#if canDelete}}
 		<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button>
+    {{/if}} 
   	</div>
   </div>
 </div>
-
+{{#if canDelete}}
 <h1>Edit</h1>
 <form onsubmit="editPlace(event)">
   <label for="namePlace">nome:</label>
@@ -22,3 +26,4 @@
   <input id="city" type="text" name="cognome" value="{{city}}">
   <button id="savePlace" data-id="{{id}}" type="submit">Edit</button>
 </form>
+{{/if}} 
