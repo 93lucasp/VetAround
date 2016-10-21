@@ -17,6 +17,23 @@ var usersController = {
       res.status(201).send(JSON.stringify(user));
     });
   },
+
+  show: function(req, res) {
+    var id = req.params.id;
+    User.findById(id, function(err, user){
+      res.render("places/profile", {nome: user.nome, cognome: user.cognome, email: user.email, id: user.id});
+    });
+  },
+
+    destroy: function(req, res){
+    var id = req.params.id;
+    User.remove({_id: id}, function(err, user) {
+      /* if there there is an error: send status 500; else: send status 200 and going to the success function in the client side(app.js); */
+      err ? 
+      res.sendStatus(500) : res.sendStatus(200);
+    });
+  },
+
   // The login function will run the authenticate function written in the user model, it will check if the user exist;
   login: function(req, res) {
     console.log("req body: ", req.body);

@@ -29,6 +29,18 @@ var createUser = function(e) {
     });  
 };
 
+var deleteUser = function(user){
+  var id = $(user).data().id; /* Getting the id from data-id in the button tag; */
+  $.ajax({
+    url: '/users/' + id,
+    type: 'DELETE',
+    /* If receving status 200 run the succes function; */
+    success: function(res) {
+      window.location.href = '/places';
+    }
+  });
+};
+
 /* Function called from the login form; */
 var loginUser = function(e) {
   e.preventDefault();

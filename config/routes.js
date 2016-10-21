@@ -20,8 +20,13 @@ router.route('/places')
 	.post(placesController.create); //calling the CREATE function in the server side;
 
 router.route('/users')
-	.get(usersController.index) //calling the INDEX function in the server side;
-	.post(usersController.create); //calling the CREATE function in the server side;
+	.post(usersController.create) //calling the CREATE function in the server side;
+	.get(usersController.index); //calling the INDEX function in the server side;
+	
+
+router.route('/users/:id')
+	.get(usersController.show)
+	.delete(usersController.destroy);
 
 // Routes for places/id page;
 router.route('/places/:id')
