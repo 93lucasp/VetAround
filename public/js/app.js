@@ -29,6 +29,33 @@ var createUser = function(e) {
     });  
 };
 
+var editUser = function(user) {
+  var id = $("#saveUser").data("id");
+  /* Getting the value that the user write in the input; */
+  var updateData = {
+    nome: $('#nome').val(),
+    cognome: $('#cognome').val(),
+    email: $('#email').val(),
+  };
+  /* Sending the values got from the input (updateData) to the update function (server side); */
+  $.ajax({
+    url: '/users/' + id,
+    type: "PUT",
+    dataType: 'json',
+    data: updateData,
+    success: function(res) {
+      /* Refresching so params not still in url; */
+      window.location.href = '/users/' + id;
+      /* Writing new values received from server side with .html */
+      $('#nome').html(updateData.nome);
+      $('#cognome').html(updateData.cognome);
+      $('#email').html(updateData.email);
+      // id = "";
+    }
+  });
+
+};
+
 var deleteUser = function(user){
   var id = $(user).data().id; /* Getting the id from data-id in the button tag; */
   $.ajax({

@@ -15,15 +15,13 @@
   </div>
 </div>
 
-{{!-- <h1>Edit</h1>
-<form onsubmit="editPlace(event)">
-  <label for="namePlace">nome:</label>
-  <input id="namePlace" type="text" name="namePlace" value="{{namePlace}}">
-  <label for="nameDoc">cognome:</label>
-  <input id="nameDoc" type="text" name="cognome" value="{{nameDoc}}">
-  <label for="address">indirizzo:</label>
-  <input id="address" type="text" name="cognome" value="{{address}}">
-  <label for="city">città:</label>
-  <input id="city" type="text" name="cognome" value="{{city}}">
-  <button id="savePlace" data-id="{{id}}" type="submit">Edit</button>
-</form> --}}
+<h1>Edit</h1>
+<form onsubmit="editUser(event)">
+  <label for="nome">nome:</label>
+  <input id="nome" type="text" name="nome" value="{{nome}}">
+  <label for="cognome">cognome:</label>
+  <input id="cognome" type="text" name="cognome" value="{{cognome}}">
+  <label for="email">email:</label>
+  <input id="email" type="text" name="cognome" value="{{email}}">
+  <button id="saveUser" data-id="{{id}}" type="submit">Edit</button>
+</form>

@@ -1,4 +1,4 @@
-// Dependencies
+/* Dependencies */
 var express 		  = require('express'),           // Web Frameworks;
 	app 			      = express(),
 	mongoose 		    = require('mongoose'),          // Mongo ODM;
@@ -8,7 +8,7 @@ var express 		  = require('express'),           // Web Frameworks;
 	session 		    = require('express-session');   // Create a session middleware with the given options, Session data is stored server-side;
 	keygen			    = require('keygenerator'),      // Random String generator;
 
-// Configuration
+/* Configuration */
 mongoose.connect('mongodb://localhost/VetAround');        //Connection to the db
 process.on('exit', function() { mongoose.disconnect() }); // Shutdown Mongoose correctly
 app.set("view engine", "hbs");                            // sets view engine to handlebars

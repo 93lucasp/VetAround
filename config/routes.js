@@ -8,43 +8,52 @@ var express 		  = require('express'),
 	placesController  = require('../controllers/places'); // Requiring the controlles in this page so then i can use them in the routes to say where to go in the server side;
 	usersController   = require('../controllers/users'); 
 
-// Differents routes;
+/* Differents routes; */
 
 router.route('/welcome').get(function(req, res){
   res.send('welcome');
 });
 
-// Routes for places page;
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\                                            ROUTES FOR PLACES                                            //
+ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
+
 router.route('/places')
-	.get(placesController.index) //calling the INDEX function in the server side;
-	.post(placesController.create); //calling the CREATE function in the server side;
+	.get(placesController.index) /* Calling the INDEX function in the server side(places/users.js); */
+	.post(placesController.create); /* Calling the CREATE function in the server side(places/users.js); */
 
-router.route('/users')
-	.post(usersController.create) //calling the CREATE function in the server side;
-	.get(usersController.index); //calling the INDEX function in the server side;
-	
-
-router.route('/users/:id')
-	.get(usersController.show)
-	.delete(usersController.destroy);
-
-// Routes for places/id page;
 router.route('/places/:id')
-	.delete(placesController.destroy) //calling the DESTROY function in the server side;
-	.get(placesController.show) //calling the SHOW function in the server side;
-	.put(placesController.update); //calling the UPDATE function in the server side;
+	.get(placesController.show) /* Calling the SHOW function in the server side(places/users.js); */
+	.put(placesController.update) /* Calling the UPDATE function in the server side(places/users.js); */
+	.delete(placesController.destroy); /* Calling the DESTROY function in the server side(places/users.js); */
 
-router.route('/login')
-	.post(usersController.login); 
-router.route('/logout')
- 	.get(usersController.logoutUser);
- 	
-// router.route('/profile')
-// 	.get(usersController.profile); 
-	// .get(usersController.index) //calling the INDEX function in the server side;
 router.route('/api/places')
 	.get(placesController.apiPlaces);
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\                                             ROUTES FOR USERS                                            //
+ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
 
+router.route('/users')
+	.get(usersController.index) /* Calling the CREATE function in the server side(controllers/users.js); */
+	.post(usersController.create); /* Calling the INDEX function in the server side(controllers/users.js); */
+	
+	
+
+router.route('/users/:id')
+	.get(usersController.show) /* Calling the SHOW function in the server side(controllers/users.js); */
+	.put(usersController.update) /* Calling the UPDATE function in the server side(controllers/users.js); */
+	.delete(usersController.destroy); /* Calling the DESTROY function in the server side(controllers/users.js); */
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\                                             ROUTES FOR LOGIN AND LOGOUT                                 //
+ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
+
+router.route('/login')
+	.post(usersController.login); /* Calling the LOGIN function in the server side(controllers/users.js); */
+
+router.route('/logout')
+ 	.get(usersController.logoutUser); /* Calling the LOGOUT function in the server side(controllers/users.js); */
 	
 module.exports = router;

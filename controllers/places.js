@@ -1,8 +1,9 @@
 var Place = require("../models/place");
 
 var placesController = {
-  /* Find query of mongoose the find all the values of the collection; */
+  /* Index function called in the routes; */
   index: function(req, res) {
+    /* Find query of mongoose the find all the values of the collection; */
     Place.find({}, function(err, docs) {
       if(err) returnError(err);
       /* For each element of docs, find the one with the same id of the postedby */
@@ -36,9 +37,10 @@ var placesController = {
 	  }).sort({createdAt: -1}); /* With .sort I am going to order the result of the find for the latest creater; */
   },
 
-  /* Create query of mongoose */
+  /* create function called in the routes; */
   create: function(req, res) {
     // console.log("req body 1111:", req.body);
+    /* Create query of mongoose */
     Place.create(req.body, function(err, place) {
       // console.log("place----",place);
       // console.log("session user id----", req.session.userId);
@@ -64,9 +66,10 @@ var placesController = {
     });
   },
 
-  /* FindByid query of mongoose that find only the one with the id that i get from params.id;*/
+  /* Show function called in the routes; */
   show: function(req, res) {
   	var id = req.params.id;
+    /* FindByid query of mongoose that find only the one with the id that i get from params.id;*/
   	Place.findById(id, function(err, place){
       /* Getting the current user */
       req.currentUser(function() {
@@ -94,18 +97,20 @@ var placesController = {
   },
 
 
-  /* Remove query of mongoose that remove only the one with the correct id; */
+  /* Destroy function called in the routes; */
   destroy: function(req, res){
   	var id = req.params.id;
+    /* Remove query of mongoose that remove only the one with the correct id; */
   	Place.remove({_id: id}, function(err, place) {
   	  /* if there there is an error: send status 500; else: send status 200 and going to the success function in the client side(app.js); */
   	  err ? 
 	    res.sendStatus(500) : res.sendStatus(200);
   	});
   },
-   /* Update query of mongoose that update only the one with the correct id that i get from params.id; */
+  /* Update function called in the routes; */
   update: function(req, res) {
     var id = req.params.id;
+    /* Update query of mongoose that update only the one with the correct id that i get from params.id; */
     Place.findById(id, function(err, place){
       /* Checking for errors or if i have values; */
       if (err) returnError(err);
