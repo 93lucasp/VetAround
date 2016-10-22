@@ -1,7 +1,25 @@
+html {
+  height: 100%; }
+
+body {
+  position: relative;
+  min-height: 100%; }
+
 .col {
   border: 1px solid #000; }
+
 #search {
-	width: 16%;
-}
+  width: 16%; }
+
+.footer {
+  height: 6%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 0; }
+
+.row {
+  margin-bottom: 100px; }
 
 /*# sourceMappingURL=style.css.map */

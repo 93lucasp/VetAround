@@ -18,17 +18,16 @@ router.route('/welcome').get(function(req, res){
 \\                                            ROUTES FOR PLACES                                            //
  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
 
-router.route('/places')
-	.get(placesController.index) /* Calling the INDEX function in the server side(places/users.js); */
-	.post(placesController.create); /* Calling the CREATE function in the server side(places/users.js); */
+router.route('/home')
+	.get(placesController.index); /* Calling the INDEX function in the server side(places/users.js); */
 
-router.route('/places/:id')
+router.route('/place/:id')
 	.get(placesController.show) /* Calling the SHOW function in the server side(places/users.js); */
 	.put(placesController.update) /* Calling the UPDATE function in the server side(places/users.js); */
 	.delete(placesController.destroy); /* Calling the DESTROY function in the server side(places/users.js); */
 
-router.route('/api/places')
-	.get(placesController.apiPlaces);
+router.route('/places')
+	.post(placesController.create); /* Calling the CREATE function in the server side(places/users.js); */
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \\                                             ROUTES FOR USERS                                            //

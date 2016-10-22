@@ -3,10 +3,11 @@ var express 		  = require('express'),           // Web Frameworks;
 	app 			      = express(),
 	mongoose 		    = require('mongoose'),          // Mongo ODM;
   hbs             = require('hbs'),               // View engine;
+  hbsutils         = require('hbs-utils')(hbs),
 	bodyParser 		  = require('body-parser'),       // Allows us to get parameter values from forms;
 	methodOverride 	= require('method-override'),   // Allows us to do put/delete requests in our hbs views;
-	session 		    = require('express-session');   // Create a session middleware with the given options, Session data is stored server-side;
-	keygen			    = require('keygenerator'),      // Random String generator;
+	session 		    = require('express-session'),   // Create a session middleware with the given options, Session data is stored server-side;
+	keygen			    = require('keygenerator');      // Random String generator;
 
 /* Configuration */
 mongoose.connect('mongodb://localhost/VetAround');        //Connection to the db
@@ -16,6 +17,8 @@ app.use(bodyParser.json());                               // allows for paramete
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));                       // allows for put/delete request in html form
 app.use(express.static(__dirname + '/public'));           // Looks for assets like stylesheets in a `public` folder
+hbsutils.registerWatchedPartials(__dirname + '/views/partials');
+
 // create the session middleware
 app.use(
   session({

@@ -17,11 +17,11 @@ var createUser = function(e) {
    .done(function(res) {
       /* var id = JSON.parse(res)._id; */
       console.log('create user was successful:', res);
-       window.location.href = '/places';
+       window.location.href = '/home';
        /* When user created calling the login function; */
       $.post("/login", newUser)
        .done(function(req, res) {
-          window.location.href = '/places';
+          window.location.href = '/home';
         });
     })
    .fail(function(err) {
@@ -63,7 +63,7 @@ var deleteUser = function(user){
     type: 'DELETE',
     /* If receving status 200 run the succes function; */
     success: function(res) {
-      window.location.href = '/places';
+      window.location.href = '/home';
     }
   });
 };
@@ -75,7 +75,7 @@ var loginUser = function(e) {
   console.log("user login is:", user);
   $.post("/login", user)
   .done(function(req, res) {
-    window.location.href = '/places';
+    window.location.href = '/home';
     console.log("logged");
   })
   .fail(function(err) {
@@ -94,11 +94,11 @@ var createPlace = function(e) {
   $.post("/places", newPlace)
     /* If received status 200 will work the function done; */
    .done(function(res) {
-     window.location.href = '/places';
+     window.location.href = '/home';
     })
    /* else if received status 500 working the fail function; */
    .fail(function(err) {
-    window.location.href = '/places';
+    window.location.href = '/home';
     console.log("Error", err);
     }); 
 };
@@ -107,11 +107,11 @@ var createPlace = function(e) {
 var deletePlace = function(place){
   var id = $(place).data().id; /* Getting the id from data-id in the button tag; */
   $.ajax({
-    url: '/places/' + id,
+    url: '/place/' + id,
     type: 'DELETE',
     /* If receving status 200 run the succes function; */
     success: function(res) {
-      window.location.href = '/places';
+      window.location.href = '/home';
     }
   });
 };
@@ -128,13 +128,13 @@ var editPlace = function(place) {
   };
   /* Sending the values got from the input (updateData) to the update function (server side); */
   $.ajax({
-    url: '/places/' + id,
+    url: '/place/' + id,
     type: "PUT",
     dataType: 'json',
     data: updateData,
     success: function(res) {
       /* Refresching so params not still in url; */
-      window.location.href = '/places/' + id;
+      window.location.href = '/place/' + id;
       /* Writing new values received from server side with .html */
       $('#namePlace').html(updateData.namePlace);
       $('#nameDoc').html(updateData.nameDoc);

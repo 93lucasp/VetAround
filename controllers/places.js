@@ -33,7 +33,7 @@ var placesController = {
         });
       });
       /* Sending value to the frontend page under the veterinary name*/
-      res.render("places/index", {veterinary: docs});
+      res.render("index", {veterinary: docs});
 	  }).sort({createdAt: -1}); /* With .sort I am going to order the result of the find for the latest creater; */
   },
 
@@ -90,7 +90,7 @@ var placesController = {
           }
         // console.log("can delete?????:", place.canDelete);
         /* Sending the value to the frontend with the name that i want; */
-        res.render("places/show", {namePlace: place.namePlace, nameDoc: place.nameDoc, city: place.city, address: place.address, id: place.id, postedBy: place.postedBy, canDelete: place.canDelete});
+        res.render("show", {namePlace: place.namePlace, nameDoc: place.nameDoc, city: place.city, address: place.address, id: place.id, postedBy: place.postedBy, canDelete: place.canDelete});
       });
   		
   	});

@@ -24,7 +24,7 @@ var usersController = {
     /* FindById query of mongoose the find the value I need; */
     User.findById(id, function(err, user){
       /* Sending data to the frontend with the names I want; */
-      res.render("places/profile", {nome: user.nome, cognome: user.cognome, email: user.email, id: user.id});
+      res.render("profile", {nome: user.nome, cognome: user.cognome, email: user.email, id: user.id});
     });
   },
   /* Update function called in the routes; */
@@ -84,7 +84,7 @@ var usersController = {
   logoutUser: function(req, res) {
     req.logout();
     // console.log("logout: ", req.session);
-    res.redirect("/places");
+    res.redirect("/home");
   }, 
 
 };
