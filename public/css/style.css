@@ -22,4 +22,9 @@ body {
 .row {
   margin-bottom: 100px; }
 
+#search {
+  position: absolute;
+  top: 65px;
+  right: 15px; }
+
 /*# sourceMappingURL=style.css.map */
