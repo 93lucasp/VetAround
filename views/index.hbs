@@ -1,40 +1,77 @@
-<div class="container">
+<div class="container-fluid">
 
 
 {{!--  Button trigger modal  --}}
 <button type="button" class="btn btn-primary btn-sm" id="modalButtonSignup" data-toggle="modal" data-target="#modalSignup">
   Signup
 </button>
-
+<div class="row">
+<div class="col-xs-6">
 {{#if currentUser}}
   <h2>Posta la tua sede</h2>
+  {{!--  Button trigger modal  --}}
+  <button type="button" class="btn btn-primary btn-sm" id="test" data-toggle="modal" data-target="#myModal">
+  Create
+</button>
 {{else}}
   <h2>Cerca il veterinario più vicino a te!</h2>
 {{/if}}
-
-{{!-- Search input --}}
-<div class="form-group">
-   <input type="text" class="form-control" id="search" placeholder="Search">
 </div>
 
 
-{{!--  Button trigger modal  --}}
-<button type="button" class="btn btn-primary btn-sm" id="test" data-toggle="modal" data-target="#myModal">
-  Create
-</button>
+{{!-- Search input --}}
+<div class="form-group col-xs-6">
+   <input type="text" class="form-control pull-right" id="search" placeholder="Search">
+</div>
+</div>
 
 
-  <div class="row">
+
+
+  <div class="row row-changes">
   	{{#each veterinary}}
- 		<div class="col-md-3 col">
- 			<a href="/place/{{id}}"><div>NOME: {{namePlace}}</div></a> 
+ 		<div class="col-md-3 col-changes">
+ 			<div class="panel-default panel-changes">
+ 				<a href="/place/{{id}}">
+	  				<div class="panel-heading">
+	    				<h3 class="panel-title">{{namePlace}}</h3>
+	  				</div>
+  				</a>
+  				<div class="panel-body">
+    				<div>
+    					<h4 class="margin-bottom-0">
+    						DOTTORE 
+    						<span class="fa fa-user-md fa-changes"></span>
+    					</4>
+    					<h4 class="color-title-chenges margin-top-0">
+    						{{nameDoc}}
+    					</h4>
+    				</div> 
+    				<div>
+    					<h4 class="margin-bottom-0">
+    						INDIRIZZO
+    						<span class="fa fa-street-view fa-changes"></span>
+    					</4>
+    					<h4 class="color-title-chenges margin-top-0">
+    						Via: {{address}}, {{city}}
+    					</h4>
+    				</div> 
+					{{#if canDelete}}
+ 						<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
+ 					{{/if}}	
+ 					{{!-- <div>CITTA':{{city}}</div> 
+ 					<div>VIA: {{address}}</div> --}}
+ 					{{!-- <div>Posted by {{postedBy}}</div> --}}
+  				</div>
+			</div>
+ 			{{!-- <a href="/place/{{id}}"><div>NOME: {{namePlace}}</div></a> 
  			<div>DOTTORE: {{nameDoc}}</div> 
  			<div>CITTA':{{city}}</div> 
  			<div>VIA: {{address}}</div>
  			<div>Posted by {{postedBy}}</div>
  			{{#if canDelete}}
  			<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 
- 			{{/if}}		
+ 			{{/if}}	 --}}	
  		</div>
 	{{/each}}  
   </div>

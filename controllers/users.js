@@ -16,6 +16,7 @@ var usersController = {
   	User.createSecure(user, function() {
       // console.log("user - create is: ", user);
       res.status(201).send(JSON.stringify(user));
+      
     });
   },
   /* Show function called in the routes; */

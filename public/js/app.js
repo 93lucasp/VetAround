@@ -1,6 +1,6 @@
 /* Calling the quicksearch function from jquery.quicksearch.js file; */
 $(function () {
-  $('input#search').quicksearch('.col');
+  $('input#search').quicksearch('.col-changes');
 });
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \\                                             USER                                                        //
@@ -17,13 +17,13 @@ var createUser = function(e) {
    .done(function(res) {
       /* var id = JSON.parse(res)._id; */
       console.log('create user was successful:', res);
-       window.location.href = '/home';
        /* When user created calling the login function; */
       $.post("/login", newUser)
        .done(function(req, res) {
           window.location.href = '/home';
         });
     })
+   /* This function fail will never works */
    .fail(function(err) {
       console.log("Error", err);
     });  
