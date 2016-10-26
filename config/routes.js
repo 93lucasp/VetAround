@@ -10,9 +10,8 @@ var express 		  = require('express'),
 
 /* Differents routes; */
 
-router.route('/welcome').get(function(req, res){
-  res.send('welcome');
-});
+router.route('/welcome')
+	.get(placesController.welcome);
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \\                                            ROUTES FOR PLACES                                            //

@@ -66,6 +66,11 @@ var placesController = {
     });
   },
 
+  /* Only to check the places created */
+  welcome: function(req, res) {
+    res.render("welcome");
+  },
+
   /* Show function called in the routes; */
   show: function(req, res) {
   	var id = req.params.id;
