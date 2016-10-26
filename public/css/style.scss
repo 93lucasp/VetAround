@@ -6,6 +6,52 @@ body {
 	min-height: 100%;
 	background-color: #fff;
 }
+$colors: #008000, #00FF00, #004200, #00E100, #82C168;
+
+BODY {
+  background: hsl(200,70,11);
+}
+
+.text--line {
+  font-size: .5em;
+  }
+
+svg {
+	font: 10em Arial;
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+
+}
+
+$max: 5;
+$stroke-step: 7%; 
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
+  stroke-width: 3px;
+  
+  animation: stroke-offset 9s infinite linear;
+  
+  @for $item from 1 through $max {
+    $stroke-color: nth($colors, $item);
+    
+    &:nth-child(#{$item}) {
+      stroke: $stroke-color;
+      stroke-dashoffset: $stroke-step * $item;
+      }
+    }
+  }
+
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: $stroke-step * $max;  
+    stroke-dasharray: 0 $stroke-step * $max*2.5;
+  }
+}
 video#videobg { 
 position: fixed;
 top: 50%;
@@ -19,6 +65,27 @@ transform: translateX(-50%) translateY(-50%);
 
 background-size: cover;
 transition: 1s opacity;
+}
+.background-above-video {
+	position:absolute; 
+	top: 52px; left: 0; 
+	width: 100%; 
+	height: 760px; 
+	z-index: 10; 
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.box-background-above {
+	top: 70%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+transform: translateX(-50%) translateY(-50%);
+	position: absolute;
+	text-align: center;
 }
 .background-video {
 	position: absolute;

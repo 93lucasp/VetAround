@@ -6,6 +6,46 @@ body {
   min-height: 100%;
   background-color: #fff; }
 
+BODY {
+  background: #082330; }
+
+.text--line {
+  font-size: .5em; }
+
+svg {
+  font: 10em Arial;
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0; }
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 7% 28%;
+  stroke-width: 3px;
+  animation: stroke-offset 9s infinite linear; }
+  .text-copy:nth-child(1) {
+    stroke: #008000;
+    stroke-dashoffset: 7%; }
+  .text-copy:nth-child(2) {
+    stroke: #00FF00;
+    stroke-dashoffset: 14%; }
+  .text-copy:nth-child(3) {
+    stroke: #004200;
+    stroke-dashoffset: 21%; }
+  .text-copy:nth-child(4) {
+    stroke: #00E100;
+    stroke-dashoffset: 28%; }
+  .text-copy:nth-child(5) {
+    stroke: #82C168;
+    stroke-dashoffset: 35%; }
+
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%; } }
 video#videobg {
   position: fixed;
   top: 50%;
@@ -18,6 +58,27 @@ video#videobg {
   transform: translateX(-50%) translateY(-50%);
   background-size: cover;
   transition: 1s opacity; }
+
+.background-above-video {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  height: 760px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.6); }
+
+.box-background-above {
+  top: 70%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  text-align: center; }
 
 .background-video {
   position: absolute;
