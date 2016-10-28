@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="/js/typed.js"></script>
 <!-- Style -->
 </head>
 <body style="position: realative">
@@ -17,13 +18,18 @@
 	<div class="background-above-video">
 		<div class="box-background-above">
 			<h1>Trova il veterinario più vicino a te in un click</h1>
-			<h2>E' facile è veloce è VetAround</h2>
+			<h1><span id="typed"></span></h1>
+			<div>{{!--  Button trigger modal  --}}
+				<button type="button" class="btn btn-primary btn-lg" id="modalButtonSignup" style="z-index: 9999999;"data-toggle="modal" data-target="#modalSignup">
+				  Signup
+				</button>
+			</div>
 			<svg >
   				<symbol id="s-text">
     				<text text-anchor="middle" x="50%" y="40%"class="text--line2">
       					VetAround
     				</text>
-    			</symbol>fffff
+    			</symbol>
     			<g class="g-ants">
     				<use xlink:href="#s-text" class="text-copy"></use>
     				<use xlink:href="#s-text" class="text-copy"></use>
@@ -32,16 +38,26 @@
     				<use xlink:href="#s-text" class="text-copy"></use>
     			</g>
     		</svg>
-    		<div>{{!--  Button trigger modal  --}}
-				<button type="button" class="btn btn-primary btn-sm" id="modalButtonSignup" style="z-index: 9999999; position: absolute;"data-toggle="modal" data-target="#modalSignup">
-				  Signup
-				</button>
-			</div>
+    		
 		</div>
 	</div>
-	<div style="  margin-top: 760px; left: 0; background: #fff; z-index: 3; width: 100%; height: 300px;">
+	<div style="margin-top: 760px; left: 0; background: #fff; z-index: 3; width: 100%; height: 300px;">
 	<h1>Provaaa!</h1>
 	</div>
+	<script>
+		$(function() {
+		  $("#typed").typed({
+		    stringsElement: $('#typed-strings'),
+		    loop: true
+		  });
+		});
+	</script>
+	<div id="typed-strings">
+	  	<h1>E' facile</h1>
+	  	<h1>E' veloce</h1>
+	  	<h1>E' VetAround</h1>
+	</div>
+
 </body>
 </html>
 

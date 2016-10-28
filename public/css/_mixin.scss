@@ -1,0 +1,12 @@
+@mixin padding-left($px) {
+          padding-left: $px;
+}
+@mixin padding-right($px) {
+          padding-right: $px;
+}
+@mixin padding-top($px) {
+          padding-top: $px;
+}
+@mixin padding-bottom($px) {
+          padding-bottom: $px;
+}

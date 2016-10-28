@@ -6,46 +6,40 @@ body {
   min-height: 100%;
   background-color: #fff; }
 
-BODY {
-  background: #082330; }
-
-.text--line {
-  font-size: .5em; }
-
 svg {
   font: 10em Arial;
   position: absolute;
   width: 100%;
   height: 600px;
-  top: 0;
+  top: 10%;
   left: 0; }
 
 .text-copy {
   fill: none;
   stroke: white;
-  stroke-dasharray: 7% 28%;
+  stroke-dasharray: 1% 4%;
   stroke-width: 3px;
-  animation: stroke-offset 9s infinite linear; }
+  animation: stroke-offset 7s linear; }
   .text-copy:nth-child(1) {
     stroke: #008000;
-    stroke-dashoffset: 7%; }
+    stroke-dashoffset: 1%; }
   .text-copy:nth-child(2) {
     stroke: #00FF00;
-    stroke-dashoffset: 14%; }
+    stroke-dashoffset: 2%; }
   .text-copy:nth-child(3) {
     stroke: #004200;
-    stroke-dashoffset: 21%; }
+    stroke-dashoffset: 3%; }
   .text-copy:nth-child(4) {
     stroke: #00E100;
-    stroke-dashoffset: 28%; }
+    stroke-dashoffset: 4%; }
   .text-copy:nth-child(5) {
     stroke: #82C168;
-    stroke-dashoffset: 35%; }
+    stroke-dashoffset: 5%; }
 
 @keyframes stroke-offset {
-  50% {
-    stroke-dashoffset: 35%;
-    stroke-dasharray: 0 87.5%; } }
+  0% {
+    stroke-dashoffset: 5%;
+    stroke-dasharray: 0 12.5%; } }
 video#videobg {
   position: fixed;
   top: 50%;
@@ -90,13 +84,27 @@ video#videobg {
 
 .navbar-changes {
   border-radius: 0;
-  z-index: 10; }
+  z-index: 10;
+  background-color: #00C200;
+  color: #fff;
+  border-color: #00C200; }
+
+.navbar-default .navbar-brand {
+  color: #fff; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff; }
 
 .col-changes {
   border: 1px solid #1995dc;
   padding: 0;
   border-radius: 4px;
-  margin: 2% 1%; }
+  margin: 2% 1%;
+  border: none; }
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+  text-decoration: underline; }
 
 .div-button-delete {
   margin-top: 36px; }
@@ -142,13 +150,6 @@ video#videobg {
   background-color: #1995dc;
   color: #fff;
   text-align: center; }
-
-.fa-changes {
-  margin-left: 4px;
-  color: #666666; }
-
-.color-title-chenges {
-  color: #666666; }
 
 #search {
   width: 50%;

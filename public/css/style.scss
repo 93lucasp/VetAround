@@ -1,3 +1,6 @@
+@import 'mixin';
+@import 'variables';
+
 html {
 	height: 100%;
 }
@@ -6,35 +9,27 @@ body {
 	min-height: 100%;
 	background-color: #fff;
 }
-$colors: #008000, #00FF00, #004200, #00E100, #82C168;
 
-BODY {
-  background: hsl(200,70,11);
-}
-
-.text--line {
-  font-size: .5em;
-  }
 
 svg {
 	font: 10em Arial;
   position: absolute;
   width: 100%;
   height: 600px;
-  top: 0;
+  top: 10%;
   left: 0;
 
 }
 
 $max: 5;
-$stroke-step: 7%; 
+$stroke-step: 1%; 
 .text-copy {
   fill: none;
   stroke: white;
   stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
   stroke-width: 3px;
   
-  animation: stroke-offset 9s infinite linear;
+  animation: stroke-offset 7s linear;
   
   @for $item from 1 through $max {
     $stroke-color: nth($colors, $item);
@@ -47,7 +42,7 @@ $stroke-step: 7%;
   }
 
 @keyframes stroke-offset {
-  50% {
+  0% {
     stroke-dashoffset: $stroke-step * $max;  
     stroke-dasharray: 0 $stroke-step * $max*2.5;
   }
@@ -77,13 +72,13 @@ transition: 1s opacity;
 
 .box-background-above {
 	top: 70%;
-left: 50%;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-z-index: -100;
-transform: translateX(-50%) translateY(-50%);
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	transform: translateX(-50%) translateY(-50%);
 	position: absolute;
 	text-align: center;
 }
@@ -98,14 +93,28 @@ transform: translateX(-50%) translateY(-50%);
 .navbar-changes {
 	border-radius: 0;
 	z-index: 10;
+	background-color: #00C200;
+	color: #fff;
+	border-color: #00C200;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
 }
 .col-changes {
 	 border: 1px solid #1995dc; 
 	 padding: 0;
 	 border-radius: 4px;
 	 margin: 2% 1%;
-    
-  	 
+	 border: none;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 .div-button-delete {
 	margin-top: 36px;
@@ -155,14 +164,14 @@ transform: translateX(-50%) translateY(-50%);
 	color: #fff;
 	text-align: center;
 }
-.fa-changes {
-	margin-left: 4px;
-	color: #666666;
-}
+// .fa-changes {
+// 	margin-left: 4px;
+// 	color: #666666;
+// }
 
-.color-title-chenges {
-	color: #666666;
-}
+// .color-title-chenges {
+// 	color: #666666;
+// }
 
 #search {
 	width: 50%;
