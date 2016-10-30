@@ -10,3 +10,10 @@
 @mixin padding-bottom($px) {
           padding-bottom: $px;
 }
+
+@mixin darker($color, $perc) {
+	background-color: darken($color,$perc);
+}
+@mixin lighter($color, $perc) {
+	background-color: lighten($color,$perc);
+}
