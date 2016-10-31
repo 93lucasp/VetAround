@@ -35,8 +35,9 @@ var editUser = function(user) {
   var updateData = {
     nome: $('#nome').val(),
     cognome: $('#cognome').val(),
-    email: $('#email').val(),
+    email: $('.email').val()
   };
+
   /* Sending the values got from the input (updateData) to the update function (server side); */
   $.ajax({
     url: '/users/' + id,
@@ -49,7 +50,7 @@ var editUser = function(user) {
       /* Writing new values received from server side with .html */
       $('#nome').html(updateData.nome);
       $('#cognome').html(updateData.cognome);
-      $('#email').html(updateData.email);
+      $('.email').html(updateData.email);
       // id = "";
     }
   });

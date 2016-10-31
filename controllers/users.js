@@ -33,6 +33,7 @@ var usersController = {
     var id = req.params.id;
     /* FindById query of mongoose the find the value I need; */
     User.findById(id, function(err, user){
+      
       /* Checking for errors or if i have values; */
       if (err) returnError(err);
       if (req.body.nome) user.nome = req.body.nome;

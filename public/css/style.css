@@ -18,29 +18,29 @@ svg {
 .text-copy {
   fill: none;
   stroke: white;
-  stroke-dasharray: 1% 4%;
+  stroke-dasharray: 10% 40%;
   stroke-width: 3px;
   animation: stroke-offset 7s linear; }
   .text-copy:nth-child(1) {
     stroke: #008000;
-    stroke-dashoffset: 1%; }
+    stroke-dashoffset: 10%; }
   .text-copy:nth-child(2) {
     stroke: #00FF00;
-    stroke-dashoffset: 2%; }
+    stroke-dashoffset: 20%; }
   .text-copy:nth-child(3) {
     stroke: #004200;
-    stroke-dashoffset: 3%; }
+    stroke-dashoffset: 30%; }
   .text-copy:nth-child(4) {
     stroke: #00E100;
-    stroke-dashoffset: 4%; }
+    stroke-dashoffset: 40%; }
   .text-copy:nth-child(5) {
     stroke: #82C168;
-    stroke-dashoffset: 5%; }
+    stroke-dashoffset: 50%; }
 
 @keyframes stroke-offset {
   0% {
-    stroke-dashoffset: 5%;
-    stroke-dasharray: 0 12.5%; } }
+    stroke-dashoffset: 50%;
+    stroke-dasharray: 0 125%; } }
 video#videobg {
   position: fixed;
   top: 50%;
@@ -99,6 +99,7 @@ a {
 
 .btn.button-changes {
   z-index: 13;
+  padding: 8px 30px;
   background-color: #4CBB17;
   border-color: #4CBB17;
   outline: none !important; }
@@ -115,11 +116,38 @@ a {
     background-color: #4ac71f;
     border-color: #4CBB17; }
 
+.modal-footer .btn.btn-primary-changes {
+  outline: none;
+  background-color: #4CBB17; }
+  .modal-footer .btn.btn-primary-changes:hover {
+    background-color: #4ac71f;
+    border-color: #4CBB17; }
+  .modal-footer .btn.btn-primary-changes:active {
+    background-color: #4ac71f;
+    border-color: #4CBB17; }
+  .modal-footer .btn.btn-primary-changes:visited {
+    background-color: #4ac71f;
+    border-color: #4CBB17; }
+  .modal-footer .btn.btn-primary-changes:focus {
+    background-color: #4ac71f;
+    border-color: #4CBB17; }
+
 #typed {
   text-shadow: 1px 1px #fff; }
 
-.panel-heading {
-  background-color: #1995dc;
+.col-changes {
+  border: 1px solid #308014;
+  padding: 0;
+  border-radius: 4px;
+  height: 250px;
+  margin: 2% 0; }
+  @media only screen and (min-width: 993px) {
+    .col-changes {
+      width: 23%;
+      margin: 2% 1%; } }
+
+.panel-heading-changes {
+  background-color: #4CBB17;
   color: #fff;
   text-align: center; }
 

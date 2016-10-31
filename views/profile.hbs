@@ -2,7 +2,7 @@
       
 <div class="container">
   <div class="row">	
-    <div class="col-md-3 col">
+    <div class="col-md-3 col-changes">
  		<div>NOME: {{nome}}</div>
 		<div>cognome: {{cognome}}</div> 
 		<div>email:{{email}}</div> 
@@ -22,6 +22,7 @@
   <label for="cognome">cognome:</label>
   <input id="cognome" type="text" name="cognome" value="{{cognome}}">
   <label for="email">email:</label>
-  <input id="email" type="text" name="cognome" value="{{email}}">
+  <input class="email" type="email" name="email" value="{{email}}">
+
   <button id="saveUser" data-id="{{id}}" type="submit">Edit</button>
 </form>

@@ -23,7 +23,7 @@ svg {
 }
 
 $max: 5;
-$stroke-step: 1%; 
+$stroke-step: 10%; 
 .text-copy {
   fill: none;
   stroke: white;
@@ -112,6 +112,7 @@ a {
 
 .btn.button-changes {
 	z-index: 13;
+	padding: 8px 30px; 
 	background-color: $main-color;
 	border-color: $main-color;
 	outline: none!important;
@@ -132,7 +133,28 @@ a {
 		border-color: $main-color;
 	}
 
-
+}
+.modal-footer {
+	.btn.btn-primary-changes {
+		outline: none;
+		background-color: $main-color;
+		&:hover {
+		@include lighter($secondary-color, 16%);
+		border-color: $main-color;
+	}
+	&:active {
+		@include lighter($secondary-color, 16%);
+		border-color: $main-color;
+	}
+	&:visited {
+		@include lighter($secondary-color, 16%);
+		border-color: $main-color;
+	}
+	&:focus {
+		@include lighter($secondary-color, 16%);
+		border-color: $main-color;
+	}
+	}
 }
 #typed{
 	text-shadow: 1px 1px $white;
@@ -144,13 +166,24 @@ a {
 // .navbar-default .navbar-nav>li>a {
 //     color: #fff;
 // }
-// .col-changes {
-// 	 border: 1px solid #1995dc; 
-// 	 padding: 0;
-// 	 border-radius: 4px;
-// 	 margin: 2% 1%;
-// 	 border: none;
-// }
+
+
+.col-changes {
+	border: 1px solid $secondary-color; 
+	padding: 0;
+	border-radius: 4px;
+	height: 250px;
+	margin: 2% 0;
+	@media only screen and (min-width : 993px) {
+	 	width: 23%;
+	 	margin: 2% 1%;
+	}
+	
+	
+	}
+
+
+
 
 // .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
 //     color: #fff;
@@ -199,8 +232,8 @@ a {
 // 	top: 0;
 // 	z-index: 10;
 // }
-.panel-heading {
-	background-color: #1995dc;
+.panel-heading-changes {
+	background-color: $main-color;
 	color: #fff;
 	text-align: center;
 }
