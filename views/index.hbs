@@ -19,10 +19,6 @@
    <input type="text" class="form-control pull-right" id="search" placeholder="Search">
 </div>
 </div>
-
-
-
-
   <div class="row row-changes">
   	{{#each veterinary}}
  		<div class="col-sm-3 col-changes">
@@ -55,7 +51,21 @@
 						{{#if canDelete}}
 	 						<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
 	 					{{/if}}	
- 					</div>
+ 					  </div>
+            <h1>Edit</h1>
+            <form onsubmit="createComments(event)">
+              <label for="rate">voto:</label>
+              <div class="container">
+                  <input type="radio" name="rate" class="rating" value="1" />
+                  <input type="radio" name="rate" class="rating" value="2" />
+                  <input type="radio" name="rate" class="rating" value="3" />
+                  <input type="radio" name="rate" class="rating" value="4" />
+                  <input type="radio" name="rate" class="rating" value="5" />
+              </div>
+              <label for="comment">comment:</label>
+              <input id="comment" type="text" name="comment">
+              <button type="submit">Crea</button>
+            </form>
  					{{!-- <div>CITTA':{{city}}</div> 
  					<div>VIA: {{address}}</div> --}}
  					{{!-- <div>Posted by {{postedBy}}</div> --}}

@@ -7,6 +7,7 @@ var express 		  = require('express'),
 	router 			  = express.Router(),
 	placesController  = require('../controllers/places'); // Requiring the controlles in this page so then i can use them in the routes to say where to go in the server side;
 	usersController   = require('../controllers/users'); 
+	commentsController   = require('../controllers/comments'); 
 
 /* Differents routes; */
 
@@ -43,6 +44,18 @@ router.route('/users/:id')
 	.put(usersController.update) /* Calling the UPDATE function in the server side(controllers/users.js); */
 	.delete(usersController.destroy); /* Calling the DESTROY function in the server side(controllers/users.js); */
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\\                                             ROUTES FOR COMMENTS                                           //
+ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
+
+// router.route('/comment/:id')
+// 	.get(commentsController.show) 
+// 	.put(commentsController.update) 
+// 	.delete(commentsController.destroy); 
+
+router.route('/comments')
+	.get(commentsController.index)
+	.post(commentsController.create);
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \\                                             ROUTES FOR LOGIN AND LOGOUT                                 //
