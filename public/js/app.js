@@ -88,10 +88,13 @@ var loginUser = function(e) {
 \\                                             COMMENT                                                     //
  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
 /* Function called from the create form; */
-var createComments = function(e) {
-  debugger;
-  var newComment = $(e.target).serialize();  // The .serialize() method creates a text string in standard URL-encoded notation from the form (example namePlace=name of the place);
+var createComments = function(comment) {
+
+  var newComment = $(comment.target).serialize(); 
+  // var placeId = $('#idUser').val(); // The .serialize() method creates a text string in standard URL-encoded notation from the form (example namePlace=name of the place);
   console.log("new comment", newComment);
+  // console.log("place id", placeId);
+
   $.post("/comments", newComment)
     /* If received status 200 will work the function done; */
    .done(function(res) {

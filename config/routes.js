@@ -6,8 +6,7 @@ var express 		  = require('express'),
 	methodOverride 	  = require('method-override'),
 	router 			  = express.Router(),
 	placesController  = require('../controllers/places'); // Requiring the controlles in this page so then i can use them in the routes to say where to go in the server side;
-	usersController   = require('../controllers/users'); 
-	commentsController   = require('../controllers/comments'); 
+	usersController   = require('../controllers/users');  
 
 /* Differents routes; */
 
@@ -19,6 +18,7 @@ router.route('/welcome')
  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////////////////////////*/
 
 router.route('/home')
+	// .get(commentsController.index)
 	.get(placesController.index); /* Calling the INDEX function in the server side(places/users.js); */
 
 router.route('/place/:id')
@@ -54,8 +54,7 @@ router.route('/users/:id')
 // 	.delete(commentsController.destroy); 
 
 router.route('/comments')
-	.get(commentsController.index)
-	.post(commentsController.create);
+	.post(placesController.createComment);
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \\                                             ROUTES FOR LOGIN AND LOGOUT                                 //
