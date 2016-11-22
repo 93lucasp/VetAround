@@ -90,12 +90,11 @@ video#videobg {
   background-color: #4CBB17;
   color: #fff;
   border-color: #4CBB17; }
-
-a {
-  color: #fff !important;
-  padding-bottom: 3px; }
-  a:hover {
-    text-decoration: underline !important; }
+  .navbar-changes a {
+    color: #fff !important;
+    padding-bottom: 3px; }
+    .navbar-changes a:hover {
+      text-decoration: underline !important; }
 
 .btn.button-changes {
   z-index: 13;
@@ -139,6 +138,7 @@ a {
   border: 1px solid #308014;
   padding: 0;
   border-radius: 4px;
+  position: relative;
   margin: 2% 0; }
   @media only screen and (min-width: 993px) {
     .col-changes {
@@ -164,5 +164,25 @@ a {
 
 .row-changes {
   margin-bottom: 100px; }
+
+.comments {
+  background-color: #fff;
+  left: 0;
+  width: 100%;
+  border: 1px solid #4CBB17;
+  padding: 0 6px;
+  position: absolute;
+  z-index: 2; }
+  .comments .userName {
+    color: #4CBB17; }
+  .comments p {
+    margin: 0 0 3px 0; }
+  .comments h5 {
+    margin: 0; }
+
+.x {
+  position: absolute;
+  top: 0;
+  right: 4px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -20,76 +20,91 @@
 </div>
 </div>
   <div class="row row-changes">
-  	{{#each veterinary}}
- 		<div class="col-sm-3 col-changes">
- 			<div class="panel-default panel-changes">
- 				<a href="/place/{{id}}">
-	  				<div class="panel-heading panel-heading-changes">
-	    				<h3 class="panel-title">{{namePlace}}</h3>
-	  				</div>
-  				</a>
-  				<div class="panel-body">
-    				<div>
-    					<h4 class="margin-bottom-0">
-    						DOTTORE 
-    						<span class="fa fa-user-md fa-changes"></span>
-    					</4>
-    					<h4 class="color-title-chenges margin-top-0">
-    						{{nameDoc}}
-    					</h4>
-    				</div> 
-    				<div>
-    					<h4 class="margin-bottom-0">
-    						INDIRIZZO
-    						<span class="fa fa-street-view fa-changes"></span>
-    					</4>
-    					<h4 class="color-title-chenges margin-top-0">
-    						Via: {{address}}, {{city}}
-    					</h4>
-              {{#each comments}}
+    {{#each veterinary}}
+    <div class="col-sm-3 col-changes">
+      <div class="panel-default panel-changes">
+        <a href="/place/{{id}}">
+            <div class="panel-heading panel-heading-changes">
+              <h3 class="panel-title">{{namePlace}}</h3>
+            </div>
+          </a>
+          <div class="panel-body">
+            <div>
+              <h4 class="margin-bottom-0">
+                DOTTORE 
+                <span class="fa fa-user-md fa-changes"></span>
+              </4>
               <h4 class="color-title-chenges margin-top-0">
-                Commenti: {{comment}}{{userName}}{{rate}}
+                {{nameDoc}}
               </h4>
-              {{/each}} 
-    				</div> 
-    				<div class="div-button-delete">
-						{{#if canDelete}}
-	 						<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
-	 					{{/if}}	
- 					  </div>
-{{#if ../currentUser}}
-            <h1>Comments</h1>
-            <form onsubmit="createComments(event)">
-              <label for="rate">voto:</label>
-              <div class="container">
-                  <input type="radio" name="rate" class="rating" value="1" />
-                  <input type="radio" name="rate" class="rating" value="2" />
-                  <input type="radio" name="rate" class="rating" value="3" />
-                  <input type="radio" name="rate" class="rating" value="4" />
-                  <input type="radio" name="rate" class="rating" value="5" />
+            </div> 
+            <div>
+              <h4 class="margin-bottom-0">
+                INDIRIZZO
+                <span class="fa fa-street-view fa-changes"></span>
+              </4>
+              <h4 class="color-title-chenges margin-top-0">
+                Via: {{address}}, {{city}}
+              </h4>
+              <a class="show-comments">show all comments</a>
+              <div class="comments">
+                <h4>Commenti:</h4>
+                {{#each comments}}
+                  <a class="x">x</a>
+                  <h5 class="color-title-changes margin-top-0">
+                    <span class="userName">{{userName}}:</span> {{rate}} su 5
+                  </h5>
+                  <p>
+                    {{comment}} 
+                  </p>
+                {{/each}} 
+                <a class="hide-comments">hide all comments</a>
               </div>
-              <label for="comment">comment:</label>
-              <input id="comment" type="text" name="comment">
-              <input type="hidden" name="placeId" id="idUser" value="{{id}}">
-              <input type="hidden" name="userName" id="userName" value="{{../currentUser.nome}}">
-              <button type="submit" >Crea</button>
-            </form>
-{{/if}}
- 					{{!-- <div>CITTA':{{city}}</div> 
- 					<div>VIA: {{address}}</div> --}}
- 					{{!-- <div>Posted by {{postedBy}}</div> --}}
-  				</div>
-			</div>
- 			{{!-- <a href="/place/{{id}}"><div>NOME: {{namePlace}}</div></a> 
- 			<div>DOTTORE: {{nameDoc}}</div> 
- 			<div>CITTA':{{city}}</div> 
- 			<div>VIA: {{address}}</div>
- 			<div>Posted by {{postedBy}}</div>
- 			{{#if canDelete}}
- 			<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 
- 			{{/if}}	 --}}	
- 		</div>
-	{{/each}}  
+              
+            </div> 
+            <div class="div-button-delete">
+            {{#if canDelete}}
+              <button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
+            {{/if}} 
+            </div>
+            {{#if ../currentUser}}
+              <h1>Comments</h1>
+              <form onsubmit="createComments(event)" >
+
+          
+                <label for="rate">voto:</label>
+               
+                    <select class="example-css" name="rate">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                  
+            
+                <label for="comment">comment:</label>
+                <input id="comment" type="text" name="comment">
+                <input type="hidden" name="placeId" id="idUser" value="{{id}}">
+                <input type="hidden" name="userName" id="userName" value="{{../currentUser.nome}}">
+                <button type="submit" >Crea</button>
+              </form>
+            {{/if}}
+          {{!-- <div>CITTA':{{city}}</div> 
+          <div>VIA: {{address}}</div> --}}
+          {{!-- <div>Posted by {{postedBy}}</div> --}}
+          </div>
+      </div>
+      {{!-- <a href="/place/{{id}}"><div>NOME: {{namePlace}}</div></a> 
+      <div>DOTTORE: {{nameDoc}}</div> 
+      <div>CITTA':{{city}}</div> 
+      <div>VIA: {{address}}</div>
+      <div>Posted by {{postedBy}}</div>
+      {{#if canDelete}}
+      <button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 
+      {{/if}}  --}} 
+    </div>
+  {{/each}}  
   </div>
 </div>
 
@@ -104,32 +119,31 @@
       </div>
       {{!-- Calling the function createPlace in app.js passing my informations as event --}}
       <form onsubmit="createPlace(event)">
-	      <div class="modal-body">
-	      	<div class="form-group">
-		  	  	<label for="namePlace">nome place:</label>
-		  		<input class="form-control" id="namePlace" type="text" name="namePlace">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="nameDoc">nome dott:</label>
-		  		<input class="form-control" id="nameDoc" type="text" name="nameDoc">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="city">city:</label>
-		  		<input class="form-control" id="city" type="text" name="city">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="address">address:</label>
-		  		<input class="form-control" id="address" type="text" name="address">
-			</div>
-	  	  </div>
-	  	  <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary btn-primary-changes">Crea</button>
-	      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="namePlace">nome place:</label>
+          <input class="form-control" id="namePlace" type="text" name="namePlace">
+        </div>
+        <div class="form-group">
+          <label for="nameDoc">nome dott:</label>
+          <input class="form-control" id="nameDoc" type="text" name="nameDoc">
+        </div>
+        <div class="form-group">
+          <label for="city">city:</label>
+          <input class="form-control" id="city" type="text" name="city">
+        </div>
+        <div class="form-group">
+          <label for="address">address:</label>
+          <input class="form-control" id="address" type="text" name="address">
+      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-primary-changes">Crea</button>
+        </div>
       </form>   
     </div>
   </div>
 </div>
-
 
 

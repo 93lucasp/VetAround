@@ -1,189 +1,180 @@
 @import 'mixin';
 @import 'variables';
-
 html {
-	height: 100%;
-}
-body {
-	position: relative;
-	min-height: 100%;
-	background-color: #fff;
+    height: 100%;
 }
 
+body {
+    position: relative;
+    min-height: 100%;
+    background-color: #fff;
+}
 
 svg {
-	font: 10em Arial;
-  position: absolute; 
-  width: 100%;
-  height: 600px;
-  top: 10%;
-  left: 0;
-  z-index: -1;
-
+    font: 10em Arial;
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    top: 10%;
+    left: 0;
+    z-index: -1;
 }
 
 $max: 5;
-$stroke-step: 10%; 
+$stroke-step: 10%;
 .text-copy {
-  fill: none;
-  stroke: white;
-  stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
-  stroke-width: 3px;
-  
-  animation: stroke-offset 7s linear;
-  
-  @for $item from 1 through $max {
-    $stroke-color: nth($colors, $item);
-    
-    &:nth-child(#{$item}) {
-      stroke: $stroke-color;
-      stroke-dashoffset: $stroke-step * $item;
-      }
+    fill: none;
+    stroke: white;
+    stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
+    stroke-width: 3px;
+    animation: stroke-offset 7s linear;
+    @for $item from 1 through $max {
+        $stroke-color: nth($colors, $item);
+        &:nth-child(#{$item}) {
+            stroke: $stroke-color;
+            stroke-dashoffset: $stroke-step * $item;
+        }
     }
-  }
+}
 
 @keyframes stroke-offset {
-  0% {
-    stroke-dashoffset: $stroke-step * $max;  
-    stroke-dasharray: 0 $stroke-step * $max*2.5;
-  }
+    0% {
+        stroke-dashoffset: $stroke-step * $max;
+        stroke-dasharray: 0 $stroke-step * $max*2.5;
+    }
 }
-video#videobg { 
-position: fixed;
-top: 50%;
-left: 50%;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-z-index: -100;
-transform: translateX(-50%) translateY(-50%);
 
-background-size: cover;
-transition: 1s opacity;
+video#videobg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity;
 }
+
 .background-above-video {
-	position:absolute; 
-	top: 52px; left: 0; 
-	width: 100%; 
-	height: 760px; 
-	z-index: 10; 
-	background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    height: 760px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .box-background-above {
-	top: 70%;
-	left: 50%;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -100;
-	transform: translateX(-50%) translateY(-50%);
-	position: absolute;
-	text-align: center;
-	color: $main-color;
+    top: 70%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    text-align: center;
+    color: $main-color;
 }
+
 .background-video {
-	position: absolute;
-	z-index: 99999;
-	width:640px;
-    min-height:370px;
-	background-color: #fff;
-	opacity: 0.5;
+    position: absolute;
+    z-index: 99999;
+    width: 640px;
+    min-height: 370px;
+    background-color: #fff;
+    opacity: 0.5;
 }
+
 .navbar-changes {
-	border-radius: 0;
-	z-index: 11;
-	background-color: $main-color;
-	color: $white;
-	border-color: $main-color;
-
-}
-a {
-	color: $white!important;
-	padding-bottom: 3px;
-	&:hover {
-		text-decoration: underline!important;
-		
-
-	}
+    border-radius: 0;
+    z-index: 11;
+    background-color: $main-color;
+    color: $white;
+    border-color: $main-color;
+    a {
+        color: $white!important;
+        padding-bottom: 3px;
+        &:hover {
+            text-decoration: underline!important;
+        }
+    }
 }
 
 .btn.button-changes {
-	z-index: 13;
-	padding: 8px 30px; 
-	background-color: $main-color;
-	border-color: $main-color;
-	outline: none!important;
-	&:hover {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	&:active {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	&:visited {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	&:focus {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
+    z-index: 13;
+    padding: 8px 30px;
+    background-color: $main-color;
+    border-color: $main-color;
+    outline: none!important;
+    &:hover {
+        @include lighter($secondary-color, 16%);
+        border-color: $main-color;
+    }
+    &:active {
+        @include lighter($secondary-color, 16%);
+        border-color: $main-color;
+    }
+    &:visited {
+        @include lighter($secondary-color, 16%);
+        border-color: $main-color;
+    }
+    &:focus {
+        @include lighter($secondary-color, 16%);
+        border-color: $main-color;
+    }
+}
 
-}
 .modal-footer {
-	.btn.btn-primary-changes {
-		outline: none;
-		background-color: $main-color;
-		&:hover {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	&:active {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	&:visited {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	&:focus {
-		@include lighter($secondary-color, 16%);
-		border-color: $main-color;
-	}
-	}
+    .btn.btn-primary-changes {
+        outline: none;
+        background-color: $main-color;
+        &:hover {
+            @include lighter($secondary-color, 16%);
+            border-color: $main-color;
+        }
+        &:active {
+            @include lighter($secondary-color, 16%);
+            border-color: $main-color;
+        }
+        &:visited {
+            @include lighter($secondary-color, 16%);
+            border-color: $main-color;
+        }
+        &:focus {
+            @include lighter($secondary-color, 16%);
+            border-color: $main-color;
+        }
+    }
 }
-#typed{
-	text-shadow: 1px 1px $white;
+
+#typed {
+    text-shadow: 1px 1px $white;
 }
+
 // .navbar-default .navbar-brand {
 //     color: #fff;
-
 // }
 // .navbar-default .navbar-nav>li>a {
 //     color: #fff;
 // }
-
-
 .col-changes {
-	border: 1px solid $secondary-color; 
-	padding: 0;
-	border-radius: 4px;
-	// height: 250px;
-	margin: 2% 0;
-	@media only screen and (min-width : 993px) {
-	 	width: 23%;
-	 	margin: 2% 1%;
-	}
-	
-	
-	}
-
-
-
+    border: 1px solid $secondary-color;
+    padding: 0;
+    border-radius: 4px;
+    // height: 250px;
+    position: relative;
+    margin: 2% 0;
+    @media only screen and (min-width: 993px) {
+        width: 23%;
+        margin: 2% 1%;
+    }
+}
 
 // .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
 //     color: #fff;
@@ -192,7 +183,6 @@ a {
 // .div-button-delete {
 // 	margin-top: 36px;
 // }
-
 // @media screen and (min-width: 768px) {
 //   .col-changes {
 // 	 border: 1px solid #1995dc; 
@@ -233,37 +223,59 @@ a {
 // 	z-index: 10;
 // }
 .panel-heading-changes {
-	background-color: $main-color;
-	color: #fff;
-	text-align: center;
+    background-color: $main-color;
+    color: #fff;
+    text-align: center;
 }
+
 // .fa-changes {
 // 	margin-left: 4px;
 // 	color: #666666;
 // }
-
 // .color-title-chenges {
 // 	color: #666666;
 // }
-
 #search {
-	width: 50%;
-	margin-top: 21px;
+    width: 50%;
+    margin-top: 21px;
 }
 
 .footer {
-	height: 6%;
-	width: 100%;
-	background-color: $main-color;
-	color: white;
-	position: absolute;
-	bottom: 0;
+    height: 6%;
+    width: 100%;
+    background-color: $main-color;
+    color: white;
+    position: absolute;
+    bottom: 0;
 }
+
 .row-changes {
-	margin-bottom: 100px;
-	// padding-left: 40px;
-	// padding-right: 40px;
+    margin-bottom: 100px;
+    // padding-left: 40px;
+    // padding-right: 40px;
 }
 
+.comments {
+    background-color: #fff;
+    left: 0;
+    width: 100%;
+    border: 1px solid $main-color;
+    padding: 0 6px;
+    position: absolute;
+    z-index: 2;
+    .userName {
+        color: $main-color;
+    }
+    p {
+        margin: 0 0 3px 0;
+    }
+    h5 {
+        margin: 0;
+    }
+}
 
-
+.x {
+    position: absolute;
+    top: 0;
+    right: 4px;
+}

@@ -62,8 +62,10 @@ var placesController = {
             place.comments.push(req.body);
 
             place.save(function(err) {
-                if (!err) console.log('Success!'); res.render("index");
+                if (!err) console.log('Success!'); 
             });
+            err ?
+                res.sendStatus(500) : res.json(req.body.rate);
         });
 
         // console.log("req body 1111:", req.body);
