@@ -98,7 +98,6 @@ video#videobg {
 
 .btn.button-changes {
   z-index: 13;
-  padding: 8px 30px;
   background-color: #4CBB17;
   border-color: #4CBB17;
   outline: none !important; }
@@ -150,6 +149,9 @@ video#videobg {
   color: #fff;
   text-align: center; }
 
+.panel-body-changes {
+  padding-top: 0; }
+
 #search {
   width: 50%;
   margin-top: 21px; }
@@ -167,22 +169,63 @@ video#videobg {
 
 .comments {
   background-color: #fff;
-  left: 0;
-  width: 100%;
+  left: -1px;
+  width: 100.8%;
   border: 1px solid #4CBB17;
-  padding: 0 6px;
+  padding: 3px 6px;
   position: absolute;
-  z-index: 2; }
+  z-index: 2;
+  border-radius: 4px;
+  word-break: break-all;
+  overflow-y: scroll;
+  height: 287px; }
+  @media only screen and (max-width: 750px) {
+    .comments {
+      width: 100.4%; } }
   .comments .userName {
+    font-weight: bold;
     color: #4CBB17; }
   .comments p {
-    margin: 0 0 3px 0; }
+    margin: 0 0 3px 0;
+    font-style: italic; }
   .comments h5 {
     margin: 0; }
 
 .x {
   position: absolute;
-  top: 0;
-  right: 4px; }
+  top: 8px;
+  right: 8px;
+  color: #4CBB17;
+  cursor: pointer; }
+
+.button-link {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  outline: none;
+  padding: 0; }
+  .button-link:hover {
+    text-decoration: underline; }
+
+.button-link2 {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  outline: none;
+  margin-bottom: 9px;
+  padding: 0; }
+  .button-link2:hover {
+    text-decoration: underline; }
+
+textarea {
+  border-radius: 2px;
+  border-color: lightgray;
+  width: 100%; }
+
+textarea::-webkit-input-placeholder {
+  font-size: .8em; }
+
+.show-input-comment {
+  margin-bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */

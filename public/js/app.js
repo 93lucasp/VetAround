@@ -2,17 +2,24 @@
 $(function() {
     $('input#search').quicksearch('.col-changes');
 
-    $( ".comments" ).toggle();
+    $(".comments").toggle();
     $(".x").click(function() {
         $(this).parent(".comments").slideToggle();
+        $("body").css("background-color","#fff");
+        $("input").css("background-color","#fff");
+        $("textarea").css("background-color","#fff");
+        $(this).parent().siblings().children().attr("disabled", false);
     });
-    $(".show-comments").click(function() {
-        $(this).next(".comments").slideToggle();
+    $(".show-hide").children(".show-comments").click(function() {
+        $(this).parent().next(".comments").slideToggle();
+        $("body").css("background-color","lightgrey");
+        $("input").css("background-color","lightgrey");
+        $("textarea").css("background-color","lightgrey");
+        $(this).attr("disabled", true);
+
     });
-    $(".hide-comments").click(function() {
-        $(this).parent(".comments").slideToggle();
-    });
-    
+
+
 });
 
 
@@ -112,22 +119,10 @@ var createComments = function(comment) {
     $.post("/comments", newComment)
         /* If received status 200 will work the function done; */
         .done(function(res) {
-          // rate = parseInt(res);
-          //   if (rate===1) {
-          //     $('.rate-img').html("<img src='/public/img/1star.png'>");
-          //   }
-          //   if (rate===2) {
-          //     $('.rate-img').html("<img src='/public/img/2star.png'>");
-          //   }
-          //   if (rate===3) {
-          //     $('.rate-img').html("<img src='/public/img/3star.png'>");
-          //   }
-          //   if (rate===4) {
-          //     $('.rate-img').html("<img src='/public/img/4star.png'>");
-          //   }
-          //   if (rate===5) {
-          //     $('.rate-img').html("<img src='/public/img/5star.png'>");
-          //   }
+            // var rate = parseInt(res);
+            // if (rate===1) {
+
+            // }
             window.location.href = '/home';
         })
         /* else if received status 500 working the fail function; */
@@ -136,7 +131,6 @@ var createComments = function(comment) {
             console.log("Error", err);
         });
 };
-
 
 
 

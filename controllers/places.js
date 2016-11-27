@@ -62,29 +62,14 @@ var placesController = {
             place.comments.push(req.body);
 
             place.save(function(err) {
-                if (!err) console.log('Success!'); 
+                if (!err) console.log('Success!');
             });
             err ?
                 res.sendStatus(500) : res.json(req.body.rate);
         });
-
-        // console.log("req body 1111:", req.body);
-        /* Create query of mongoose */
-        //Place.create(req.body, function(err, place) {
-        // console.log("place----",place);
-        // console.log("session user id----", req.session.userId);
-        /* Pushing inside the array postedBy the user id; */
-        //place.postedBy.push(req.session.userId);
-        // console.log("place----after pushing",place);
-        //place.save(function(err) {
-        //if (err) console.log("error: ",err);
-        //});
-        /* if there there is an error: send status 500 and going to the fail function in the client side(app.js); else: send status 200 and going to the done function in the client side(app.js); */
-        //err ? 
-        //res.sendStatus(500) : res.sendStatus(200);
-        // console.log("req body 2222:", place);
-        //});
     },
+
+    
 
     /* Only to check the places created */
     apiPlaces: function(req, res) {

@@ -54,7 +54,8 @@ router.route('/users/:id')
 // 	.delete(commentsController.destroy); 
 
 router.route('/comments')
-	.post(placesController.createComment);
+	.post(placesController.createComment)
+
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \\                                             ROUTES FOR LOGIN AND LOGOUT                                 //

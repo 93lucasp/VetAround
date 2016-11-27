@@ -28,7 +28,7 @@
               <h3 class="panel-title">{{namePlace}}</h3>
             </div>
           </a>
-          <div class="panel-body">
+          <div class="panel-body panel-body-changes">
             <div>
               <h4 class="margin-bottom-0">
                 DOTTORE 
@@ -46,20 +46,7 @@
               <h4 class="color-title-chenges margin-top-0">
                 Via: {{address}}, {{city}}
               </h4>
-              <a class="show-comments">show all comments</a>
-              <div class="comments">
-                <h4>Commenti:</h4>
-                {{#each comments}}
-                  <a class="x">x</a>
-                  <h5 class="color-title-changes margin-top-0">
-                    <span class="userName">{{userName}}:</span> {{rate}} su 5
-                  </h5>
-                  <p>
-                    {{comment}} 
-                  </p>
-                {{/each}} 
-                <a class="hide-comments">hide all comments</a>
-              </div>
+              
               
             </div> 
             <div class="div-button-delete">
@@ -68,28 +55,59 @@
             {{/if}} 
             </div>
             {{#if ../currentUser}}
-              <h1>Comments</h1>
-              <form onsubmit="createComments(event)" >
-
-          
-                <label for="rate">voto:</label>
-               
-                    <select class="example-css" name="rate">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                  
-            
-                <label for="comment">comment:</label>
-                <input id="comment" type="text" name="comment">
-                <input type="hidden" name="placeId" id="idUser" value="{{id}}">
-                <input type="hidden" name="userName" id="userName" value="{{../currentUser.nome}}">
-                <button type="submit" >Crea</button>
-              </form>
+              {{#unless canDelete}}
+             
+              <button class="button-link2 " data-toggle="modal" data-target="#leaveComment">Dicci la tua opinione sulla clinica</button>
+              {{!--  Modal  --}}
+              <div class="modal fade" id="leaveComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Lascia una tua opinione sulla struttura
+                      </h4>
+                    </div>
+                    <div class="modal-body">
+                    {{!-- Calling the function createPlace in app.js passing my informations as event --}}
+                    <form onsubmit="createComments(event)" class="form-comment">
+                      <h5>voto:</h5>
+                      <select class="example-css" name="rate">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                      </select>
+                      <h5>comment:</h5>
+                      <textarea id="comment" type="text" name="comment" placeholder="Lascia un tuo commentoo su questa struttura"></textarea>
+                      <input type="hidden" name="placeId" id="idUser" value="{{id}}">
+                      <input type="hidden" name="userName" id="userName" value="{{../currentUser.nome}}">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary button-changes" >Commenta</button>
+                      </div>
+                    </form>   
+                  </div>
+                </div>
+              </div>
+              {{/unless}}
             {{/if}}
+            <div class="show-hide"> <button class="button-link show-comments">show all comments</button> </div>
+              <div class="comments">
+                {{#each comments}}
+                  <span class="x glyphicon glyphicon-remove"></span>
+                  <h5 class="color-title-changes margin-top-0">
+                    <span class="userName">{{userName}}:</span> {{rate}} su 5
+                  </h5>
+                  <p>
+                    {{comment}} 
+                  </p>
+                  
+                   {{!--  <a class="remove-comments">remove</a> --}}
+                
+                {{/each}} 
+               
+              </div>
           {{!-- <div>CITTA':{{city}}</div> 
           <div>VIA: {{address}}</div> --}}
           {{!-- <div>Posted by {{postedBy}}</div> --}}
@@ -145,5 +163,8 @@
     </div>
   </div>
 </div>
+
+
+
 
 
