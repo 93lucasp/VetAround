@@ -11,9 +11,17 @@ svg {
   position: absolute;
   width: 100%;
   height: 600px;
-  top: 10%;
+  top: 0;
   left: 0;
   z-index: -1; }
+  @media only screen and (max-width: 970px) {
+    svg {
+      top: -200px;
+      font-size: 10em; } }
+  @media only screen and (max-width: 750px) {
+    svg {
+      top: -200px;
+      font-size: 5em; } }
 
 .text-copy {
   fill: none;
@@ -41,7 +49,7 @@ svg {
   0% {
     stroke-dashoffset: 50%;
     stroke-dasharray: 0 125%; } }
-video#videobg {
+#background {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -50,39 +58,13 @@ video#videobg {
   width: auto;
   height: auto;
   z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background-size: cover;
-  transition: 1s opacity; }
+  background-repeat: no-repeat;
+  background-size: cover; }
 
-.background-above-video {
-  position: absolute;
-  top: 52px;
-  left: 0;
-  width: 100%;
-  height: 760px;
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.6); }
-
-.box-background-above {
-  top: 70%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  transform: translateX(-50%) translateY(-50%);
-  position: absolute;
-  text-align: center;
-  color: #4CBB17; }
-
-.background-video {
-  position: absolute;
-  z-index: 99999;
-  width: 640px;
-  min-height: 370px;
-  background-color: #fff;
-  opacity: 0.5; }
+.container h1 {
+  color: white; }
 
 .navbar-changes {
   border-radius: 0;
@@ -95,6 +77,13 @@ video#videobg {
     padding-bottom: 3px; }
     .navbar-changes a:hover {
       text-decoration: underline !important; }
+
+.box-background {
+  margin-top: 300px;
+  text-align: center; }
+  @media only screen and (max-width: 750px) {
+    .box-background {
+      margin-top: 200px; } }
 
 .btn.button-changes {
   z-index: 13;
@@ -144,13 +133,21 @@ video#videobg {
       width: 23%;
       margin: 2% 1%; } }
 
+.panel-changes a:hover {
+  text-decoration: none; }
+
 .panel-heading-changes {
   background-color: #4CBB17;
   color: #fff;
-  text-align: center; }
+  text-align: center;
+  height: 50px; }
+  .panel-heading-changes:hover {
+    background-color: #52cc19; }
 
 .panel-body-changes {
-  padding-top: 0; }
+  padding-top: 0;
+  height: 218px;
+  word-break: break-all; }
 
 #search {
   width: 50%;
@@ -201,7 +198,7 @@ video#videobg {
 .button-link {
   background-color: transparent;
   border: none;
-  color: blue;
+  color: #003399;
   outline: none;
   padding: 0; }
   .button-link:hover {
@@ -210,12 +207,10 @@ video#videobg {
 .button-link2 {
   background-color: transparent;
   border: none;
-  color: blue;
+  color: #4CBB17;
   outline: none;
-  margin-bottom: 9px;
+  margin-bottom: 14px;
   padding: 0; }
-  .button-link2:hover {
-    text-decoration: underline; }
 
 textarea {
   border-radius: 2px;
@@ -227,5 +222,9 @@ textarea::-webkit-input-placeholder {
 
 .show-input-comment {
   margin-bottom: 20px; }
+
+.div-button-delete {
+  position: absolute;
+  bottom: 5px; }
 
 /*# sourceMappingURL=style.css.map */

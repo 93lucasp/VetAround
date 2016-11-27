@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
 
 <div class="row">
 <div class="col-xs-6">
@@ -49,15 +49,11 @@
               
               
             </div> 
-            <div class="div-button-delete">
-            {{#if canDelete}}
-              <button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
-            {{/if}} 
-            </div>
+            
             {{#if ../currentUser}}
               {{#unless canDelete}}
              
-              <button class="button-link2 " data-toggle="modal" data-target="#leaveComment">Dicci la tua opinione sulla clinica</button>
+              <button class="button-link2 " data-toggle="modal" data-target="#leaveComment">Lascia un commento</button>
               {{!--  Modal  --}}
               <div class="modal fade" id="leaveComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -92,7 +88,13 @@
               </div>
               {{/unless}}
             {{/if}}
+            <div class="div-button-delete">
+            {{#if canDelete}}
+              <button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
+            {{/if}} 
+            </div>
             <div class="show-hide"> <button class="button-link show-comments">show all comments</button> </div>
+            
               <div class="comments">
                 {{#each comments}}
                   <span class="x glyphicon glyphicon-remove"></span>

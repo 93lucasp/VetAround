@@ -15,9 +15,18 @@ svg {
     position: absolute;
     width: 100%;
     height: 600px;
-    top: 10%;
+    top: 0;
     left: 0;
     z-index: -1;
+     @media only screen and (max-width: 970px) {
+    	top: -200px;
+        font-size: 10em;
+    }
+    @media only screen and (max-width: 750px) {
+    	top: -200px;
+        font-size: 5em;
+    }
+   
 }
 
 $max: 5;
@@ -44,7 +53,7 @@ $stroke-step: 10%;
     }
 }
 
-video#videobg {
+#background {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -53,42 +62,13 @@ video#videobg {
     width: auto;
     height: auto;
     z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+    background-repeat: no-repeat;
     background-size: cover;
-    transition: 1s opacity;
 }
-
-.background-above-video {
-    position: absolute;
-    top: 52px;
-    left: 0;
-    width: 100%;
-    height: 760px;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.box-background-above {
-    top: 70%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-    position: absolute;
-    text-align: center;
-    color: $main-color;
-}
-
-.background-video {
-    position: absolute;
-    z-index: 99999;
-    width: 640px;
-    min-height: 370px;
-    background-color: #fff;
-    opacity: 0.5;
+.container h1 {
+  color: white;
 }
 
 .navbar-changes {
@@ -105,7 +85,14 @@ video#videobg {
         }
     }
 }
-
+.box-background {
+	margin-top: 300px;
+	text-align: center;
+	@media only screen and (max-width: 750px) {
+    	margin-top: 200px;
+    }
+    
+}
 .btn.button-changes {
     z-index: 13;
     background-color: $main-color;
@@ -193,10 +180,13 @@ video#videobg {
 // 	 padding: 0;
 // } 
 // }
-// .panel-changes {
-// 	border: none;
-// 	margin: 0;
-// }
+.panel-changes {
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
 // .panel-footer-changes {
 // 	text-align: center;
 // }
@@ -225,10 +215,16 @@ video#videobg {
     background-color: $main-color;
     color: #fff;
     text-align: center;
+    height: 50px;
+    &:hover {
+    	background-color: #52cc19;
+    }
 }
 
 .panel-body-changes {
     padding-top:0;
+    height: 218px;
+    word-break: break-all;
 }
 
 // .fa-changes {
@@ -297,7 +293,7 @@ video#videobg {
 .button-link {
     background-color: transparent;
     border: none;
-    color: blue;
+    color: #003399;
     outline: none;
     padding: 0;
     &:hover {
@@ -308,13 +304,10 @@ video#videobg {
 .button-link2 {
     background-color: transparent;
     border: none;
-    color: blue;
+    color: $main-color;
     outline: none;
-    margin-bottom: 9px;
+    margin-bottom: 14px;
     padding: 0;
-    &:hover {
-        text-decoration: underline;
-    }
 }
 
 textarea {
@@ -331,3 +324,8 @@ textarea::-webkit-input-placeholder {
 .show-input-comment {
 	margin-bottom:20px;
 }
+.div-button-delete{
+	position: absolute;
+	bottom: 5px;
+}
+
