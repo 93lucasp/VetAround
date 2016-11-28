@@ -54,8 +54,8 @@ var editUser = function(user) {
     var id = $("#saveUser").data("id");
     /* Getting the value that the user write in the input; */
     var updateData = {
-        nome: $('#nome').val(),
-        cognome: $('#cognome').val(),
+        nome: $('.nome').val(),
+        cognome: $('.cognome').val(),
         email: $('.email').val()
     };
 
@@ -69,8 +69,8 @@ var editUser = function(user) {
             /* Refresching so params not still in url; */
             window.location.href = '/users/' + id;
             /* Writing new values received from server side with .html */
-            $('#nome').html(updateData.nome);
-            $('#cognome').html(updateData.cognome);
+            $('.nome').html(updateData.nome);
+            $('.cognome').html(updateData.cognome);
             $('.email').html(updateData.email);
             // id = "";
         }
