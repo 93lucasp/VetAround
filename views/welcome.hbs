@@ -1,96 +1,127 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8" />
-<title></title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="/js/typed.js"></script>
-<!-- Style -->
-</head>
-<body style="position: realative">
-	<video autoplay loop muted poster="" id="background">
-    	<source src="/video/dog.mp4" type="video/mp4">
-	</video>
-	<div class="container">
-    <div class="row" >
-      <div class="col-md-12">
-      <svg >
-  				<symbol id="s-text">
-    				<text text-anchor="middle" x="50%" y="20%"class="text--line2">
-      					VetAround
-    				</text>
-    			</symbol>
-    			<g class="g-ants">
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    				<use xlink:href="#s-text" class="text-copy"></use> 
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    			</g>
-    		</svg>
-        <div class="box-background">
-			<h1>Trova il veterinario più vicino a te</h1>
-			<h1><span id="typed"></span></h1>
-			{{!--  Button trigger modal  --}}
-				<button type="button" class="btn btn-primary btn-lg button-changes" id="modalButtonSignup" data-toggle="modal" data-target="#modalSignup">
-				  Signup
-				</button>
+	<head>
+		<meta charset="utf-8" />
+		<title>VetAround</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="/js/typed.js"></script>
+	</head>
+	<body>
+		<video autoplay loop muted poster="" id="background">
+    		<source src="/video/dog.mp4" type="video/mp4">
+		</video>
+		<div class="container">
+    		<div class="row">
+      			<div class="col-md-12">
+      				<svg>
+  						<symbol id="s-text">
+    						<text text-anchor="middle" x="50%" y="20%">
+      							VetAround
+    						</text>
+    					</symbol>
+    					<g class="g-ants">
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    				<use xlink:href="#s-text" class="text-copy"></use> 
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    			</g>
+    				</svg>
+        			<div class="box-background">
+						<h1>Trova il veterinario più vicino a te</h1>
+						<h1><span id="typed"></span></h1>
+						<button type="button" class="btn btn-primary btn-lg btn-changes" id="modalButtonSignup" data-toggle="modal" data-target="#modalSignup">
+				  			Signup
+						</button>
+					</div>
+				</div>
+    		</div>
+  		</div>
+  		<div class="main-cont">
+			<div class="cities-row-1">
+				<div class="row">
+					<h2>Siamo presenti a</h2>
+					<div class="col-sm-4"><h4>Torino</h4>
+						<img src="./img/torino.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Milano</h4>
+						<img src="./img/milano.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Roma</h4>
+						<img src="./img/roma.jpg">
+					</div>
+				</div>
 			</div>
-			
-      </div>
-    </div>
-  </div>
-
-
-	<div style=" left: 0; background: #fff; z-index: 3; width: 100%; height: 1300px; position: relative;margin-top:120px;">
-	<div class="container-up1">
-
-			<div class="row">
-				<div class="col-sm-4"><h1>Provaaa!</h1></div>
-				<div class="col-sm-4"><h1>Provaaa!</h1></div>
-				<div class="col-sm-4"><h1>Provaaa!</h1></div>
-			</div>
-
+			<div class="cities-row-2">
+				<div class="row">
+					<div class="col-sm-4"><h4>Bologna</h4>
+						<img src="./img/bologna.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Firenze</h4>
+						<img src="./img/firenze.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Verona</h4>
+						<img src="./img/verona.jpg">
+					</div>
+				</div>
 		
-	</div>
-	<div class="container-up-next">
-		
-			<div class="row">
-				<div class="col-sm-4"><h1>Provaaa!</h1></div>
-				<div class="col-sm-4"><h1>Provaaa!</h1></div>
-				<div class="col-sm-4"><h1>Provaaa!</h1></div>
 			</div>
-	
-	</div>
-	<div class="come-funziona">
-		<hr class="style-one">
-		<h1>Come funziona</h1>
-		<hr class="style-two">
-	</div>
+			<div class="come-funziona">
+				<hr class="style-one">
+				<h2>Come funziona</h2>
+				<hr class="style-two">
+				<div class="row">
+					<div class="col-sm-6">
+						<h3>• Cerchi una clinica?</h3>
+						<p>
+							Vuoi trovare il miglior veterinario della zona in qualsiasi posta del mondo tu sia?<br>
+							Cerca la tua città, controlla i feedback e scegli tu da chi andare!<br>
+							FACILE E VELOCE !
+						</p>
+						<h3>• Hai una clinica?</h3>
+						<p>
+							Vuoi diventare il veterinario più apprezzato della zona?<br>
+							Vuoi farti conoscere?<br>
+							Non temi le recensioni dei tuoi clienti?<br>
+							Iscriviti a VetAround, inserisci la tua struttura nel nostro database ed aspetta che le persone ti trovino!
+							Più feedback positivi avrai più facile che il prossimo cliente preferisca te!<br>
 
-	<div class="chi-siamo">
-		<hr class="style-one">
-		<h1>Come funziona</h1>
-		<hr class="style-two">
-	</div>
-	
-	
-	</div>
-	<script>
-		$(function() {
-		  $("#typed").typed({
-		    stringsElement: $('#typed-strings'),
-		    loop: true
-		  });
-		});
-	</script>
-	<div id="typed-strings">
-	  	<h1>E' facile!</h1>
-	  	<h1>E' veloce!</h1>
-	  	<h1>E' VetAround!</h1>
-	</div>
+						</p>
+					</div>
+					<div class="col-sm-6">
+						<img src="./img/visiting.jpg">
+					</div>				
+				</div>
+				
+				
+			</div>
+			<div class="chi-siamo">
+				<hr class="style-one">
+				<h2>Come nasce l'idea</h2>
+				<p>
+					Siamo ragazzi che condividiamo molte passiani tra queste il viaggiare e gli animali!<br>
+					Uno di noi si ritovò con il suo cane in Sicilia, ebbe necessità di cercare un veterinario, cercando su google ne trovò svariati ma nulla con recensioni e quindi nulla su cui basarsi e di cui potersi fidare.
+					Cosi si domandò:<br> "E se ci fosse una piattaforma per questo? che con un click mi permettesse di trovare il veterinario più vicino a me e con feedback positivi in modo da poter dormire tranquillo?"
 
-</body>
+				</p>
+				<hr class="style-two">
+			</div>
+		</div>
+		<script>
+			$(function() {
+			  $("#typed").typed({
+			    stringsElement: $('#typed-strings'),
+			    loop: true
+			  });
+			});
+		</script>
+		<div id="typed-strings">
+		  	<h1>E' facile!</h1>
+		  	<h1>E' veloce!</h1>
+		  	<h1>E' VetAround!</h1>
+		</div>
+
+	</body>
 </html>
 
 
