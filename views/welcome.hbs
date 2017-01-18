@@ -1,108 +1,134 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8" />
-<title></title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="/js/typed.js"></script>
-<!-- Style -->
-</head>
-<body style="position: realative">
-
-	<video autoplay loop muted id="videobg">
-
-	<!-- MP4 must be first for iPad! -->
-	<source src="/video/dog.mp4" type="video/mp4" /><!-- Safari / iOS video    -->
-	<source src="/video/dog.mp4" type="video/webm" /><!-- Firefox / Opera / Chrome10 -->
-	</video>
-	<div class="background-above-video">
-		<div class="box-background-above">
-			<h1>Trova il veterinario più vicino a te</h1>
-			<h1><span id="typed"></span></h1>
-			<div>{{!--  Button trigger modal  --}}
-				<button type="button" class="btn btn-primary btn-lg button-changes" id="modalButtonSignup" data-toggle="modal" data-target="#modalSignup">
-				  Signup
-				</button>
+	<head>
+		<script src="/js/typed.js"></script>
+	</head>
+	<body>
+		<video autoplay loop muted poster="" id="background">
+    		<source src="/video/dog.mp4" type="video/mp4">
+		</video>
+		<div class="container">
+    		<div class="row">
+      			<div class="col-md-12">
+      				<svg>
+  						<symbol id="s-text">
+    						<text text-anchor="middle" x="50%" y="20%">
+      							VetAround
+    						</text>
+    					</symbol>
+    					<g class="g-ants">
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    				<use xlink:href="#s-text" class="text-copy"></use> 
+		    				<use xlink:href="#s-text" class="text-copy"></use>
+		    			</g>
+    				</svg>
+        			<div class="box-background">
+						<h1>Trova il veterinario più vicino a te</h1>
+						<h1><span id="typed"></span></h1>
+						<button type="button" class="btn btn-primary btn-lg btn-changes" id="modalButtonSignup" data-toggle="modal" data-target="#modalSignup">
+				  			Signup
+						</button>
+						<a type="button" href="/home" class="btn btn-primary btn-lg btn-changes">
+				  			Visita
+						</a>
+					</div>
+				</div>
+    		</div>
+  		</div>
+  		<div class="main-cont">
+			<div class="cities-row-1">
+				<div class="row">
+					<h2>Siamo presenti a</h2>
+					<div class="col-sm-4"><h4>Torino</h4>
+						<img src="./img/torino.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Milano</h4>
+						<img src="./img/milano.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Roma</h4>
+						<img src="./img/roma.jpg">
+					</div>
+				</div>
 			</div>
-			<svg >
-  				<symbol id="s-text">
-    				<text text-anchor="middle" x="50%" y="40%"class="text--line2">
-      					VetAround
-    				</text>
-    			</symbol>
-    			<g class="g-ants">
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    				<use xlink:href="#s-text" class="text-copy"></use> 
-    				<use xlink:href="#s-text" class="text-copy"></use>
-    			</g>
-    		</svg>
-    		
-		</div>
-	</div>
-	<div style="margin-top: 760px; left: 0; background: #fff; z-index: 3; width: 100%; height: 300px;">
-	<h1>Provaaa!</h1>
-	</div>
-	<script>
-		$(function() {
-		  $("#typed").typed({
-		    stringsElement: $('#typed-strings'),
-		    loop: true
-		  });
-		});
-	</script>
-	<div id="typed-strings">
-	  	<h1>E' facile!</h1>
-	  	<h1>E' veloce!</h1>
-	  	<h1>E' VetAround!</h1>
-	</div>
+			<div class="cities-row-2">
+				<div class="row">
+					<div class="col-sm-4"><h4>Bologna</h4>
+						<img src="./img/bologna.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Firenze</h4>
+						<img src="./img/firenze.jpg">
+					</div>
+					<div class="col-sm-4"><h4>Verona</h4>
+						<img src="./img/verona.jpg">
+					</div>
+				</div>
+		
+			</div>
+			<div class="come-funziona">
+				<hr class="style-one">
+				<h2>Come funziona</h2>
+				
+				<div class="row">
+					<div class="col-sm-4 " id="icon-dog">
+						<img src="./svg/dog.svg">
+						<p>Il tuo cane ha bisogno di cure?</p>
+					</div>
+					<div class="col-sm-4" id="icon-map">
+						<img src="./svg/placeholder.svg">
+						<p>Cerca la struttura più vicina!</p>
+					</div>			
+					<div class="col-sm-4" id="icon-vet">
+						<img src="./svg/vet.svg">
+						<p>Cura il tuo animale!</p>
+					</div>	
 
-</body>
+				</div>
+				<hr class="style-two">
+				
+			</div>
+			<div class="chi-siamo">
+				
+				<h2>Come nasce l'idea</h2>
+				<p>
+					Siamo ragazzi che condividiamo molte passiani tra queste il viaggiare e gli animali!<br>
+					Uno di noi si ritovò con il suo cane in Sicilia, ebbe necessità di cercare un veterinario, cercando su google ne trovò svariati ma nulla con recensioni e quindi nulla su cui basarsi e di cui potersi fidare.
+					Cosi si domandò:<br> "E se ci fosse una piattaforma per questo? che con un click mi permettesse di trovare il veterinario più vicino a me e con feedback positivi in modo da poter dormire tranquillo?"
+
+				</p>
+				<hr class="style-two">
+			</div>
+			<div class="contatti">
+				
+				<h2>Contatti</h2>
+				<p>
+					Siamo in costante crescita, se anche tu credi nel progetto VetAround e ti piacerebbe contribuire non esitare a scriverci!<br>
+					<a href="mailto:spezzanoluca@gmail.com">Invia Email</a>
+
+				</p>
+				<hr class="style-two">
+			</div>
+		</div>
+		<script>
+			$(function() {
+			  $("#typed").typed({
+			    stringsElement: $('#typed-strings'),
+			    loop: true
+			  });
+			});
+		</script>
+		<div id="typed-strings">
+		  	<h1>E' facile!</h1>
+		  	<h1>E' veloce!</h1>
+		  	<h1>E' VetAround!</h1>
+		</div>
+
+	</body>
 </html>
 
 
 
-{{!--  Modal  --}}
-<div class="modal fade" id="modalSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal signup</h4>
-      </div>
-      {{!-- Calling the function createUser in app.js passing my informations as event --}}
-      <form onsubmit="createUser(event)">
-	      <div class="modal-body">
-	      	<div class="form-group">
-		  	  	<label for="nome">Nome:</label>
-				<input class="form-control" id="nome" type="text" name="nome">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="cognome">cognome:</label>
-				<input class="form-control" id="cognome" type="text" name="cognome">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="email">Email:</label>
-		  		<input class="form-control" id="email" type="email" name="email">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="passwordDigest">Password:</label>
-				<input class="form-control" id="passwordDigest" type="password" name="passwordDigest">
-			</div>
-			<div class="form-group">
-                <label for="password">Confirmation password</label>
-                <input id="password" id="password" name="password" type="password" class="form-control">
-            </div>
-	  	  </div>
-	  	  <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary btn-primary-changes">Create</button>
-	      </div>
-      </form>   
-    </div>
-  </div>
-</div>
 
 
 

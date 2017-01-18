@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container">
 
 <div class="row">
 <div class="col-xs-6">
 {{#if currentUser}}
   <h2>Posta la tua sede</h2>
   {{!--  Button trigger modal  --}}
-  <button type="button" class="btn btn-primary btn-sm button-changes" id="test" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-primary btn-sm btn-changes" id="test" data-toggle="modal" data-target="#myModal">
   Create
 </button>
 {{else}}
@@ -19,55 +19,113 @@
    <input type="text" class="form-control pull-right" id="search" placeholder="Search">
 </div>
 </div>
-
   <div class="row row-changes">
-  	{{#each veterinary}}
- 		<div class="col-sm-3 col-changes">
- 			<div class="panel-default panel-changes">
- 				<a href="/place/{{id}}">
-	  				<div class="panel-heading panel-heading-changes">
-	    				<h3 class="panel-title">{{namePlace}}</h3>
-	  				</div>
-  				</a>
-  				<div class="panel-body">
-    				<div>
-    					<h4 class="margin-bottom-0">
-    						DOTTORE 
-    						<span class="fa fa-user-md fa-changes"></span>
-    					</4>
-    					<h4 class="color-title-chenges margin-top-0">
-    						{{nameDoc}}
-    					</h4>
-    				</div> 
-    				<div>
-    					<h4 class="margin-bottom-0">
-    						INDIRIZZO
-    						<span class="fa fa-street-view fa-changes"></span>
-    					</4>
-    					<h4 class="color-title-chenges margin-top-0">
-    						Via: {{address}}, {{city}}
-    					</h4>
-    				</div> 
-    				<div class="div-button-delete">
-						{{#if canDelete}}
-	 						<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Elimina</button> 
-	 					{{/if}}	
- 					</div>
- 					{{!-- <div>CITTA':{{city}}</div> 
- 					<div>VIA: {{address}}</div> --}}
- 					{{!-- <div>Posted by {{postedBy}}</div> --}}
-  				</div>
-			</div>
- 			{{!-- <a href="/place/{{id}}"><div>NOME: {{namePlace}}</div></a> 
- 			<div>DOTTORE: {{nameDoc}}</div> 
- 			<div>CITTA':{{city}}</div> 
- 			<div>VIA: {{address}}</div>
- 			<div>Posted by {{postedBy}}</div>
- 			{{#if canDelete}}
- 			<button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 
- 			{{/if}}	 --}}	
- 		</div>
-	{{/each}}  
+    {{#each veterinary}}
+    <div class="col-sm-3 col-changes">
+      <div class="panel-default panel-changes">
+        <a href="/place/{{id}}">
+            <div class="panel-heading panel-heading-changes">
+              <h3 class="panel-title">{{namePlace}}</h3>
+            </div>
+          </a>
+          <div class="panel-body panel-body-changes">
+            <div>
+              <h4 class="margin-bottom-0">
+                DOTTORE 
+                <span class="fa fa-user-md fa-changes"></span>
+              </4>
+              <h4 class="color-title-chenges margin-top-0">
+                {{nameDoc}}
+              </h4>
+            </div> 
+            <div>
+              <h4 class="margin-bottom-0">
+                INDIRIZZO
+                <span class="fa fa-street-view fa-changes"></span>
+              </4>
+              <h4 class="color-title-chenges margin-top-0">
+                Via: {{address}}, {{city}}
+              </h4>
+              
+              
+            </div> 
+            
+            {{#if ../currentUser}}
+              {{#unless canDelete}}
+             
+              <button class="button-link2 " data-toggle="modal" data-target="#leaveComment">Lascia un commento</button>
+              {{!--  Modal  --}}
+              <div class="modal fade" id="leaveComment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Lascia una tua opinione sulla struttura
+                      </h4>
+                    </div>
+                    <div class="modal-body">
+                    {{!-- Calling the function createPlace in app.js passing my informations as event --}}
+                    <form onsubmit="createComments(event)" class="form-comment">
+                      <h5>voto:</h5>
+                      <select class="example-css" name="rate">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                      </select>
+                      <h5>commento:</h5>
+                      <textarea id="comment" type="text" name="comment" placeholder="Lascia un tuo commentoo su questa struttura"></textarea>
+                      <input type="hidden" name="placeId" id="idUser" value="{{id}}">
+                      <input type="hidden" name="userName" id="userName" value="{{../currentUser.nome}}">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary btn-changes" >Commenta</button>
+                      </div>
+                    </form>   
+                  </div>
+                </div>
+              </div>
+              {{/unless}}
+            {{/if}}
+            <div class="div-button-delete">
+            {{#if canDelete}}
+              <button data-id="{{id}}" class='btn btn-xs btn-danger' onclick="deletePlace(this)">Elimina</button> 
+            {{/if}} 
+            </div>
+            <div class="show-hide"> <button class="button-link show-comments">show all comments</button> </div>
+            
+              <div class="comments">
+              <span class="x glyphicon glyphicon-remove"></span>
+                {{#each comments}}
+                  
+                  <h5 class="color-title-changes margin-top-0">
+                    <span class="userName">{{userName}}:</span> {{rate}} su 5
+                  </h5>
+                  <p>
+                    {{comment}} 
+                  </p>
+                  
+                   {{!--  <a class="remove-comments">remove</a> --}}
+                
+                {{/each}} 
+               
+              </div>
+          {{!-- <div>CITTA':{{city}}</div> 
+          <div>VIA: {{address}}</div> --}}
+          {{!-- <div>Posted by {{postedBy}}</div> --}}
+          </div>
+      </div>
+      {{!-- <a href="/place/{{id}}"><div>NOME: {{namePlace}}</div></a> 
+      <div>DOTTORE: {{nameDoc}}</div> 
+      <div>CITTA':{{city}}</div> 
+      <div>VIA: {{address}}</div>
+      <div>Posted by {{postedBy}}</div>
+      {{#if canDelete}}
+      <button data-id="{{id}}" class='btn btn-danger' onclick="deletePlace(this)">Delete</button> 
+      {{/if}}  --}} 
+    </div>
+  {{/each}}  
   </div>
 </div>
 
@@ -78,36 +136,38 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Crea il post della tua struttura</h4>
       </div>
       {{!-- Calling the function createPlace in app.js passing my informations as event --}}
       <form onsubmit="createPlace(event)">
-	      <div class="modal-body">
-	      	<div class="form-group">
-		  	  	<label for="namePlace">nome place:</label>
-		  		<input class="form-control" id="namePlace" type="text" name="namePlace">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="nameDoc">nome dott:</label>
-		  		<input class="form-control" id="nameDoc" type="text" name="nameDoc">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="city">city:</label>
-		  		<input class="form-control" id="city" type="text" name="city">
-	  		</div>
-	  		<div class="form-group">
-		  		<label for="address">address:</label>
-		  		<input class="form-control" id="address" type="text" name="address">
-			</div>
-	  	  </div>
-	  	  <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary btn-primary-changes">Crea</button>
-	      </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="namePlace">Nome Struttura:</label>
+          <input class="form-control" id="namePlace" type="text" name="namePlace">
+        </div>
+        <div class="form-group">
+          <label for="nameDoc">Nome Dottore:</label>
+          <input class="form-control" id="nameDoc" type="text" name="nameDoc">
+        </div>
+        <div class="form-group">
+          <label for="city">Città:</label>
+          <input class="form-control" id="city" type="text" name="city">
+        </div>
+        <div class="form-group">
+          <label for="address">Indirizzo:</label>
+          <input class="form-control" id="address" type="text" name="address">
+      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+          <button type="submit" class="btn btn-primary btn-changes">Crea</button>
+        </div>
       </form>   
     </div>
   </div>
 </div>
+
+
 
 
 
