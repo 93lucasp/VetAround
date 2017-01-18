@@ -10,7 +10,7 @@ var express 		  = require('express'),           // Web Frameworks;
 	keygen			    = require('keygenerator');      // Random String generator;
 
 /* Configuration */
-mongoose.connect('mongodb://localhost/VetAround');        //Connection to the db
+mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/VetAround');        //Connection to the db
 process.on('exit', function() { mongoose.disconnect() }); // Shutdown Mongoose correctly
 app.set("view engine", "hbs");                            // sets view engine to handlebars
 app.use(bodyParser.json());                               // allows for parameters in JSON and html
@@ -60,6 +60,6 @@ var routes = require('./config/routes');
 app.use(routes);
 
 // Start server at port: 2016
-app.listen(2016, function() {
+app.listen(process.env.PORT || 2016, function() {
 	console.log('server is running');
 }); 

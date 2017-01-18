@@ -92,11 +92,11 @@ svg {
 
 .main-cont {
     left: 0;
-    background: #fff;
-    color: #666666;
+    background: $white;
+    color: $gray-color;
     z-index: 3;
     width: 100%;
-    height: 2200px;
+    height: 2400px;
     position: relative;
     margin-top: 120px;
     h2 {
@@ -112,21 +112,26 @@ svg {
     background-color: $main-color!important;
     border-color: $main-color!important;
     outline: none!important;
+    color: $white;
     &:hover {
         @include lighter($secondary-color, 16%);
         border-color: $main-color;
+        color: $white;
     }
     &:active {
         @include lighter($secondary-color, 16%);
         border-color: $main-color;
+        color: $white;
     }
     &:visited {
         @include lighter($secondary-color, 16%);
         border-color: $main-color;
+        color: $white;
     }
     &:focus {
         @include lighter($secondary-color, 16%);
         border-color: $main-color;
+        color: $white;
     }
 }
 
@@ -146,9 +151,7 @@ img {
     padding: 5px 60px;
     display: block;
     text-align: center;
-    
     img {
-      
         &:hover {
             transform: scale(1.03);
             cursor: pointer;
@@ -208,7 +211,6 @@ img {
         border-radius: 50%;
         padding: 20px;
     }
-    
 }
 
 #icon-map {
@@ -252,6 +254,7 @@ img {
         top: 1900px;
     }
 }
+
 .contatti {
     width: 70%;
     position: absolute;
@@ -268,6 +271,9 @@ img {
     }
     .style-two {
         margin-top: 150px;
+    }
+    @media only screen and (max-width: 769px) {
+        top: 1900px;
     }
     @media only screen and (max-width: 480px) {
         top: 3000px;
@@ -323,6 +329,7 @@ hr.style-two {
     border: 1px solid $secondary-color;
     padding: 0;
     border-radius: 4px;
+    background-color: $light-green;
     // height: 250px;
     position: relative;
     margin: 2% 0;
@@ -332,16 +339,31 @@ hr.style-two {
     }
 }
 
-.col-changes2 {
+.col-change {
     padding: 10px;
     border-radius: 4px;
+    h3 {
+        color: $gray-color;
+    }
+}
+
+.col-changes2 {
+    @extend .col-change;
     height: 410px;
 }
 
 .col-changes3 {
-    padding: 10px;
-    border-radius: 4px;
+    @extend .col-change;
     height: 600px;
+}
+
+.col-single {
+    margin: 100px 0 340px 0;
+    color: $gray-color;
+    font-size: 1.8em;
+    .col-xs-6 {
+        margin-top: 50px;
+    }
 }
 
 // .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
@@ -431,7 +453,7 @@ hr.style-two {
     position: absolute;
     bottom: 0;
     z-index: 100;
-    padding-top:20px;
+    padding-top: 20px;
     img {
         width: 26%;
     }
@@ -439,14 +461,16 @@ hr.style-two {
         height: 250px;
     }
 }
+
 .copy {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 40%;
     @media only screen and (max-width: 750px) {
         left: 15%;
     }
 }
+
 .social {
     float: right;
     a {
@@ -456,8 +480,9 @@ hr.style-two {
         float: none;
     }
 }
+
 .row-changes {
-    margin-bottom: 100px;
+    margin-bottom: 350px;
     // padding-left: 40px;
     // padding-right: 40px;
 }
@@ -545,6 +570,9 @@ textarea::-webkit-input-placeholder {
     max-width: 350px;
     width: calc(100% - 2em);
     vertical-align: top;
+    h4 {
+        color: $main-color;
+    }
 }
 
 .input__field {

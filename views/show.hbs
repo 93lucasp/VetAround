@@ -1,29 +1,29 @@
 {{#if canDelete}}
       
 <div class="container">
-  <div class="row"> 
+  <div class="row row-changes"> 
     <div class="col-md-6 col-changes3">
       <h3>I tuoi dati attuali della tua struttura</h3>
-      <span class="input input--minoru">
+      <span class="input">
 
           <h4 >{{namePlace}}</h4>
           <label class="input__label input__label--yoko input__label--yoko2" >
             <span class="input__label-content input__label-content--yoko2">NOME STRUTTURA</span>
           </label>
         </span>
-        <span class="input input--minoru">
+        <span class="input">
           <h4 class="margin-top-0">{{nameDoc}}</h4>
           <label class="input__label input__label--yoko input__label--yoko2" >
             <span class="input__label-content input__label-content--yoko2">DOTTORE</span>
           </label>
         </span>
-        <span class="input input--minoru">
+        <span class="input">
           <h4 class="margin-top-0">{{city}}</h4>
           <label class="input__label input__label--yoko input__label--yoko2">
             <span class="input__label-content input__label-Àontent--yoko2"> CITTÀ</span>
           </label>
         </span>
-        <span class="input input--minoru">
+        <span class="input">
           <h4 class="margin-top-0">{{address}}</h4>
           <label class="input__label input__label--yoko input__label--yoko2">
             <span class="input__label-content input__label-content--yoko2">VIA</span>
@@ -46,31 +46,31 @@
     <div class="col-md-6 col-changes3">
       <h3>Modifica i dati della tua struttura</h3>
       <form onsubmit="editPlace(event)">
-        <span class="input input--minoru">
+        <span class="input">
           <input class="input__field input__field--yoko nome" id="namePlace" type="text" name="namePlace" value="{{namePlace}}"/>
           <label class="input__label input__label--yoko" for="namePlace">
             <span class="input__label-content input__label-content--yoko">NOME STRUTTURA</span>
           </label>
         </span>
-        <span class="input input--minoru">
+        <span class="input">
           <input class="input__field input__field--yoko cognome" id="nameDoc" type="text" name="cognome" value="{{nameDoc}}"/>
           <label class="input__label input__label--yoko" for="nameDoc">
             <span class="input__label-content input__label-content--yoko">NOME DOTT.</span>
           </label>
         </span>
-        <span class="input input--minoru">
+        <span class="input">
           <input class="input__field input__field--yoko email" id="city" type="text" name="cognome" value="{{city}}"/>
           <label class="input__label input__label--yoko" for="city">
             <span class="input__label-content input__label-content--yoko">CITTÀ</span>
           </label>
         </span>
-        <span class="input input--minoru">
+        <span class="input">
           <input class="input__field input__field--yoko email" id="address" type="text" name="cognome" value="{{address}}"/>
           <label class="input__label input__label--yoko" for="address">
             <span class="input__label-content input__label-content--yoko">VIA</span>
           </label>
         </span>
-        <button id="savePlace" data-id="{{id}}" type="submit" class="btn btn-xs button-changes fixed-left-bottom">Edit</button>
+        <button id="savePlace" data-id="{{id}}" type="submit" class="btn btn-xs btn-changes fixed-left-bottom">Edit</button>
       </form>       
     </div>
   </div>
@@ -80,7 +80,7 @@
   <div class="container">
     <div class="row"> 
       <div class="col-sm-2"></div>
-      <div class="col-sm-8 col-border">
+      <div class="col-sm-8 col-border col-single">
       <div class="panel-default ">
         <div class="panel-heading panel-heading-style">
           <h1 class="panel-title">{{namePlace}}</h1>
